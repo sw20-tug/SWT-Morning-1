@@ -126,7 +126,7 @@
                         android:id="@+id/priceBtn5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="€ 200 + (3)" />
+                        android:text="€ 200 + (5)" />
                 </LinearLayout>
 
             </LinearLayout>
