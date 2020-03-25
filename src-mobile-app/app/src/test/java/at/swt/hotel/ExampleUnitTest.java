@@ -14,4 +14,18 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+
+    @Test
+    public void addUserToDBTest()
+    {
+        DataInitializer da = new DataInitializer();
+        AppDatabase db = da.init();
+
+        User testUser = new User();
+        testUser.name = "test Hans";
+        testUser.email = "testmail@tugraz.at";
+
+        db.userDao().insertAll(testUser);
+    }
 }
