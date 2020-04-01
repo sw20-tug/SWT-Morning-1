@@ -29,3 +29,4 @@ public class ExampleUnitTest {
         db.userDao().insertAll(testUser);
     }
 }
+
