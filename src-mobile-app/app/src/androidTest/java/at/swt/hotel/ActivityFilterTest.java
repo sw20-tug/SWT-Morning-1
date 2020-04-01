@@ -30,6 +30,9 @@ public class ActivityFilterTest {
         onView(withId(R.id.editText))
                 .perform(typeText(MESSAGE), closeSoftKeyboard());
 
+        onView(withId(R.id.searchLocationButton))
+                .perform(click());
+
         //onView(withId(R.id.send_message)).perform(click())
 
         // Type text and then press the button.
