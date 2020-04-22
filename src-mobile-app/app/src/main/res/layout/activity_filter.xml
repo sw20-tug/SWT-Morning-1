@@ -63,7 +63,7 @@
                 android:isIndicator="false"
                 android:max="5"
                 android:numStars="5"
-                android:rating="3"
+                android:rating="4"
                 android:stepSize="1" />
 
             <LinearLayout
@@ -85,17 +85,23 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/priceBtn2"
-                        android:layout_width="198dp"
+                    <ToggleButton
+                        android:id="@+id/priceToggle1"
+                        android:layout_width="251dp"
                         android:layout_height="wrap_content"
-                        android:text="€ 50 - € 100 (2)" />
+                        android:layout_weight="1"
+                        android:text="€ 0 - € 50 (0)"
+                        android:textOff="€ 0 - € 50 (0)"
+                        android:textOn="€ 0 - € 50 (0)" />
 
-                    <Button
-                        android:id="@+id/priceBtn"
-                        android:layout_width="match_parent"
+                    <ToggleButton
+                        android:id="@+id/priceToggle2"
+                        android:layout_width="251dp"
                         android:layout_height="wrap_content"
-                        android:text="€ 0 - € 50 (0)" />
+                        android:layout_weight="1"
+                        android:text="€ 50 - € 100 (2)"
+                        android:textOff="€ 50 - € 100 (2)"
+                        android:textOn="€ 50 - € 100 (2)" />
 
                 </LinearLayout>
 
@@ -104,17 +110,23 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/priceBtn3"
-                        android:layout_width="198dp"
+                    <ToggleButton
+                        android:id="@+id/priceToggle3"
+                        android:layout_width="236dp"
                         android:layout_height="wrap_content"
-                        android:text="€ 100 - € 150 (23)" />
+                        android:layout_weight="1"
+                        android:text="€ 100 - € 150 (23)"
+                        android:textOff="€ 100 - € 150 (23)"
+                        android:textOn="€ 100 - € 150 (23)" />
 
-                    <Button
-                        android:id="@+id/priceBtn4"
-                        android:layout_width="match_parent"
+                    <ToggleButton
+                        android:id="@+id/priceToggle4"
+                        android:layout_width="236dp"
                         android:layout_height="wrap_content"
-                        android:text="€ 150 - € 200 (36)" />
+                        android:layout_weight="1"
+                        android:text="€ 150 - € 200 (36)"
+                        android:textOff="€ 150 - € 200 (36)"
+                        android:textOn="€ 150 - € 200 (36)" />
 
                 </LinearLayout>
 
@@ -123,11 +135,15 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/priceBtn5"
-                        android:layout_width="match_parent"
+                    <ToggleButton
+                        android:id="@+id/priceToggle5"
+                        android:layout_width="236dp"
                         android:layout_height="wrap_content"
-                        android:text="€ 200 + (5)" />
+                        android:layout_weight="1"
+                        android:text="€ 200 + (5)"
+                        android:textOff="€ 200 + (5)"
+                        android:textOn="€ 200 + (5)" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -151,33 +167,42 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
+                    <ToggleButton
+                        android:id="@+id/categoryToggle1"
+                        android:layout_width="232dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Romantic" />
+                        android:text="Romantic"
+                        android:textOff="Romantic"
+                        android:textOn="Romantic" />
 
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
+                    <ToggleButton
+                        android:id="@+id/categoryToggle2"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Adventure" />
+                        android:text="Adventure"
+                        android:textOff="Adventure"
+                        android:textOn="Adventure" />
 
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="wrap_content"
+                    <ToggleButton
+                        android:id="@+id/categoryToggle3"
+                        android:layout_width="236dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Family" />
+                        android:text="Family"
+                        android:textOff="Family"
+                        android:textOn="Family" />
 
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="wrap_content"
+                    <ToggleButton
+                        android:id="@+id/categoryToggle4"
+                        android:layout_width="236dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sport" />
+                        android:text="Sport"
+                        android:textOff="Sport"
+                        android:textOn="Sport" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -246,7 +271,7 @@
                         android:checked="false"
                         android:text="ToggleButton"
                         android:textOff="Hiking"
-                        android:textOn="Surfing" />
+                        android:textOn="Hiking" />
 
                     <ToggleButton
                         android:id="@+id/activityToggleButton5"

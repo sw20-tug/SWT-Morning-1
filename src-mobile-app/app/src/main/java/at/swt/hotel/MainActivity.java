@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
         switchToLoginView(btn_login);
         switchToFilterView(btn_filter);
     }
-
-
+    
     public void switchToHotelView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
