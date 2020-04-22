@@ -1,5 +1,9 @@
 package at.swt.hotel;
 
+import android.util.Log;
+
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -9,12 +13,5 @@ public class DataInitializer extends AppCompatActivity {
     public static final String DB_NAME = "Hotel_db";
 
     public void init() {
-        AppDatabase db = Room.databaseBuilder(
-                getApplicationContext(),
-                AppDatabase.class,
-                DB_NAME).build();
-
-        //TODO: fill database like this
-        //db.userDao().insertAll();
     }
 }

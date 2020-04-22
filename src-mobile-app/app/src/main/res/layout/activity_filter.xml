@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoText="false"
+                android:text="Location"
+                android:textSize="36sp" />
+
+            <LinearLayout
+                android:id="@+id/Location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editFilterLocation"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+
+                    android:hint="Location"
+                    android:inputType="textPersonName" />
+
+                <ImageButton
+                    android:id="@+id/btnFilterSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/ic_menu_search" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ratingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoText="false"
+                android:text="Star rating"
+                android:textSize="36sp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:max="5"
+                android:numStars="5"
+                android:rating="4"
+                android:stepSize="1" />
+
+            <LinearLayout
+                android:id="@+id/Price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Price"
+                    android:textSize="36sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/priceToggle1"
+                        android:layout_width="251dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="€ 0 - € 50 (0)"
+                        android:textOff="€ 0 - € 50 (0)"
+                        android:textOn="€ 0 - € 50 (0)" />
+
+                    <ToggleButton
+                        android:id="@+id/priceToggle2"
+                        android:layout_width="251dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="€ 50 - € 100 (2)"
+                        android:textOff="€ 50 - € 100 (2)"
+                        android:textOn="€ 50 - € 100 (2)" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/priceToggle3"
+                        android:layout_width="236dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="€ 100 - € 150 (23)"
+                        android:textOff="€ 100 - € 150 (23)"
+                        android:textOn="€ 100 - € 150 (23)" />
+
+                    <ToggleButton
+                        android:id="@+id/priceToggle4"
+                        android:layout_width="236dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="€ 150 - € 200 (36)"
+                        android:textOff="€ 150 - € 200 (36)"
+                        android:textOn="€ 150 - € 200 (36)" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/priceToggle5"
+                        android:layout_width="236dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="€ 200 + (5)"
+                        android:textOff="€ 200 + (5)"
+                        android:textOn="€ 200 + (5)" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/categoryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Category"
+                    android:textSize="36sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/categoryToggle1"
+                        android:layout_width="232dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Romantic"
+                        android:textOff="Romantic"
+                        android:textOn="Romantic" />
+
+                    <ToggleButton
+                        android:id="@+id/categoryToggle2"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Adventure"
+                        android:textOff="Adventure"
+                        android:textOn="Adventure" />
+
+                    <ToggleButton
+                        android:id="@+id/categoryToggle3"
+                        android:layout_width="236dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Family"
+                        android:textOff="Family"
+                        android:textOn="Family" />
+
+                    <ToggleButton
+                        android:id="@+id/categoryToggle4"
+                        android:layout_width="236dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sport"
+                        android:textOff="Sport"
+                        android:textOn="Sport" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Activities"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/activityText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Activities"
+                    android:textSize="36sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="ToggleButton"
+                        android:textOff="Surfing"
+                        android:textOn="Surfing" />
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="ToggleButton"
+                        android:textOff="Climbing"
+                        android:textOn="Climbing" />
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="ToggleButton"
+                        android:textOff="Mountainbiking"
+                        android:textOn="Mountainbiking" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="ToggleButton"
+                        android:textOff="Hiking"
+                        android:textOn="Hiking" />
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="ToggleButton"
+                        android:textOff="Diving"
+                        android:textOn="Diving" />
+
+                    <ToggleButton
+                        android:id="@+id/activityToggleButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="ToggleButton"
+                        android:textOff="Skating"
+                        android:textOn="Skating" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
