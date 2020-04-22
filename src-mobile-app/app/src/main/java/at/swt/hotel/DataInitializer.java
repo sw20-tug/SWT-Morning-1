@@ -187,11 +187,11 @@ public class DataInitializer extends AppCompatActivity {
         thirdHotel.activities.add(activityHotel3_2);
         thirdHotel.activities.add(activityHotel3_3);
         thirdHotel.activities.add(activityHotel3_4);
-        thirdHotel.pictures.add("Hotel3_1.jpg");
-        thirdHotel.pictures.add("Hotel3_2.jpg");
-        thirdHotel.pictures.add("Hotel3_3.jpg");
-        thirdHotel.pictures.add("Hotel3_4.jpg");
-        thirdHotel.pictures.add("Hotel3_5.jpg");
+        thirdHotel.pictures.add("hotel3_1.jpg");
+        thirdHotel.pictures.add("hotel3_2.jpg");
+        thirdHotel.pictures.add("hotel3_3.jpg");
+        thirdHotel.pictures.add("hotel3_4.jpg");
+        thirdHotel.pictures.add("hotel3_5.jpg");
 
         Rating ratingHotel4_1 = new Rating();
         ratingHotel3_1.comment = "Tolle Location, super freundlich. Ein wirklich tolles, hippes Design (außen Jugendstil, innen künstlerisch gestaltet, modern), " +
@@ -219,118 +219,6 @@ public class DataInitializer extends AppCompatActivity {
         activityHotel3_2.type = "Spa und Wellnesscenter";
         activityHotel3_2.description = "Spa und Wellnesscenter";
 
-        User userSeven = new User();
-        userFour.name = "Alex";
-        userFour.email = "alex@gmail.com";
-
-        User userEigth = new User();
-        userFive.name = "Susanne";
-        userFive.email = "susanne@office.at";
-
-        User userNine = new User();
-        userSix.name = "Michael";
-        userSix.email = "michael@test.nice";
-
-        Rating ratingHotel3_1 = new Rating();
-        ratingHotel3_1.comment = "Das Frühstück war sehr gut, die Abwicklung sehr unkompliziert.\n" +
-                "Besonders gefallen hat mir das wirklich sehr freundliche Personal. Das Fenster im Zimmer war gekippt (wohl über mehrere Stunden) und wir haben am Anfang ziemlich gefroren, weil es sehr lange dauerte, bis der Raum wieder angenehm temperiert war.\n" +
-                "Das ist aber wirklich der einzige Kritikpunkt, sonst hat alles super gepasst.";
-        ratingHotel3_1.rating = 7;
-        ratingHotel3_1.user = userSeven;
-
-        Rating ratingHotel3_2 = new Rating();
-        ratingHotel3_2.comment = "The room was like a hotel room, with a nice double-bed, tv, and some hangers and shelves. It was clean and the towels were there waiting for us already when we came.\n" +
-                " The bathroom was very nice and we were both surprised by what we got for our money";
-        ratingHotel3_2.rating = 6;
-        ratingHotel3_2.user = userEigth;
-
-        Rating ratingHotel3_3 = new Rating();
-        ratingHotel3_3.comment = "The rooms are huge, good location next to Hauptbahnhof although a bit of a walk to the tourist attractions. My room faced onto a main road so a bit noisy";
-        ratingHotel3_3.rating = 4;
-        ratingHotel3_3.user = userNine;
-
-        HotelActivity activityHotel3_1 = new HotelActivity();
-        activityHotel3_1.type = "Live-Sportveranstaltung";
-        activityHotel3_1.description = "Live-Sportveranstaltung";
-
-        HotelActivity activityHotel3_2 = new HotelActivity();
-        activityHotel3_2.type = "Bibliothek";
-        activityHotel3_2.description = "Bibliothek";
-
-        HotelActivity activityHotel3_3 = new HotelActivity();
-        activityHotel3_3.type = "Fahrradverleih";
-        activityHotel3_3.description = "Fahrradverleih";
-
-        HotelActivity activityHotel3_4 = new HotelActivity();
-        activityHotel3_4.type = "Billard";
-        activityHotel3_4.description = "Billard";
-
-        Hotel thirdHotel = new Hotel();
-        thirdHotel.name = "a&o Graz Hauptbahnhof";
-        thirdHotel.description = "Das a&o Graz Hauptbahnhof liegt nur 100 m vom Grazer Hauptbahnhof entfernt. Im eigenen Bad liegen kostenfreie Pflegeprodukte und ein Haartrockner für Sie bereit. WLAN nutzen Sie in allen Bereichen kostenfrei.\n" +
-                "Von der Bar auf der Dachterrasse können Sie den Panoramablick über die Stadt genießen. In der Lobby können Sie Tischfußball und Billard spielen. Für die Erkundung der Stadt können Sie den Fahrradverleih nutzen.\n" +
-                "In der Lobby und in der Bar sorgt Sat-TV mit verschiedenen Sportkanälen für Unterhaltung.\n" +
-                "Verschiedene Restaurants und Geschäfte im Zentrum von Graz können Sie vom a&o Graz Hauptbahnhof in 5 Gehminuten erreichen.\n" +
-                "Gries ist bei Reisenden, die an einer schönen Altstadt, Spazieren gehen und Sightseeing interessiert sind, sehr beliebt.\n\n";
-        thirdHotel.price = "40";
-        thirdHotel.category = "Hostel";
-        thirdHotel.stars = 3;
-        thirdHotel.location = "Eggenberger Straße 7, Gries, 8020 Graz, Österreich";
-        thirdHotel.ratings.add(ratingHotel3_1);
-        thirdHotel.ratings.add(ratingHotel3_2);
-        thirdHotel.ratings.add(ratingHotel3_3);
-        thirdHotel.activities.add(activityHotel3_1);
-        thirdHotel.activities.add(activityHotel3_2);
-        thirdHotel.activities.add(activityHotel3_3);
-        thirdHotel.activities.add(activityHotel3_4);
-
-
-        User userTen = new User();
-        userFour.name = "Hans";
-        userFour.email = "hans@gmail.com";
-
-        User userEleven = new User();
-        userFive.name = "Peter";
-        userFive.email = "peter@office.at";
-
-        User userTwelve = new User();
-        userSix.name = "bob";
-        userSix.email = "bob@test.nice";
-
-        Rating ratingHotel4_1 = new Rating();
-        ratingHotel3_1.comment = "Tolle Location, super freundlich. Ein wirklich tolles, hippes Design (außen Jugendstil, innen künstlerisch gestaltet, modern), " +
-                "ein fabelhaftes Frühstück und wirklich nettes Personal. Sehr nah zur Innenstadt. Würde wiederkommen.";
-        ratingHotel3_1.rating = 9;
-        ratingHotel3_1.user = userTen;
-
-        Rating ratingHotel4_2 = new Rating();
-        ratingHotel3_2.comment = "Everybody was very helpful and very friendly. Also the dinner was a real experience and the service was excellent. " +
-                "It is seen the staff enjoys and know what they do. Very recommendable. Thanks!";
-        ratingHotel3_2.rating = 8;
-        ratingHotel3_2.user = userEleven;
-
-        Rating ratingHotel4_3 = new Rating();
-        ratingHotel3_3.comment = "Rooms have a great comfort, very modern and clean hotel, quiet as well, although in center. breakfast is amazing. " +
-                "Staff is very friendly. Definetly will return!";
-        ratingHotel3_3.rating = 10;
-        ratingHotel3_3.user = userTwelve;
-
-        HotelActivity activityHotel4_1 = new HotelActivity();
-        activityHotel3_1.type = "Fitnesscenter";
-        activityHotel3_1.description = "Fitnesscenter";
-
-        HotelActivity activityHotel4_2 = new HotelActivity();
-        activityHotel3_2.type = "Spa und Wellnesscenter";
-        activityHotel3_2.description = "Spa und Wellnesscenter";
-
-        HotelActivity activityHotel4_3 = new HotelActivity();
-        activityHotel3_3.type = "Fahrradverleih";
-        activityHotel3_3.description = "Fahrradverleih";
-
-        HotelActivity activityHotel4_4 = new HotelActivity();
-        activityHotel3_4.type = "Shuttleservice";
-        activityHotel3_4.description = "Shuttleservice";
-
         Hotel fourthHotel = new Hotel();
         fourthHotel.name = "Grand Hotel Wiesler";
         fourthHotel.description = "Das Hotel Wiesler in Graz liegt direkt an der Mur in der Grazer Altstadt und verfügt über eine Sauna, einen Fitnessbereich und einen Friseur. Das Hotel bietet auch eine 24-Stunden-Rezeption und kostenloses WLAN.\n" +
@@ -347,14 +235,13 @@ public class DataInitializer extends AppCompatActivity {
         fourthHotel.ratings.add(ratingHotel4_3);
         fourthHotel.activities.add(activityHotel4_1);
         fourthHotel.activities.add(activityHotel4_2);
-        fourthHotel.activities.add(activityHotel4_3);
-        fourthHotel.activities.add(activityHotel4_4);
 
-        fourthHotel.pictures.add("Hotel4_1.jpg");
-        fourthHotel.pictures.add("Hotel4_2.jpg");
-        fourthHotel.pictures.add("Hotel4_3.jpg");
-        fourthHotel.pictures.add("Hotel4_4.jpg");
-        fourthHotel.pictures.add("Hotel4_5.jpg");
-        fourthHotel.pictures.add("Hotel4_6.jpg");
+
+        fourthHotel.pictures.add("hotel4_1.jpg");
+        fourthHotel.pictures.add("hotel4_2.jpg");
+        fourthHotel.pictures.add("hotel4_3.jpg");
+        fourthHotel.pictures.add("hotel4_4.jpg");
+        fourthHotel.pictures.add("hotel4_5.jpg");
+        fourthHotel.pictures.add("hotel4_6.jpg");
     }
 }

@@ -8,8 +8,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -23,30 +28,30 @@ public class DBTest{
     private Context ApplicationProvider;
     public static final String DB_NAME = "Hotel_db";
 
-    @Before
-    public void createDb() {
-        Context context = ApplicationProvider.getApplicationContext();
-        db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
-        //userDao = db.getUserDao();
-    }
 
-    @After
-    public void closeDb() throws IOException {
-        db.close();
-    }
 
     @Test
-    public void writeUserAndReadInList() throws Exception {
-        //DataInitializer da = new DataInitializer();
-        //AppDatabase db = da.init();
+    public void testUsergetAll() throws Exception {
+        UserDao userDao = Mockito.mock(UserDao.class);
 
         User testUser = new User();
         testUser.name = "test Hans";
         testUser.email = "testmail@tugraz.at";
 
-        db.userDao().insertAll(testUser);
-        List<User> byName = db.userDao().getAll();
-        //List<User> byName = userDao.findUsersByName("george");
-        assertThat(byName.get(0), equalTo(testUser));
+        Mockito.when(userDao.getAll()).thenReturn(Arrays.asList(testUser));
+
+        List<User> users = userDao.getAll();
+        assertEquals(1,users.size());
+    }
+
+    @Test
+    public void testUsergetAllEmpty() throws Exception {
+        UserDao userDao = Mockito.mock(UserDao.class);
+
+        List<User> emptyList = new ArrayList<>();
+        Mockito.when(userDao.getAll()).thenReturn(emptyList);
+
+        List<User> users = userDao.getAll();
+        assertEquals(0,users.size());
     }
 }
