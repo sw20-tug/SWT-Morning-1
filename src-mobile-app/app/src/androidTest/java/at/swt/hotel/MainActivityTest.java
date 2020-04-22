@@ -44,7 +44,7 @@ public class MainActivityTest {
     @Test
     public void LoginTestActivity() {
         // Type text and then press the button.
-        onView(withId(R.id.btnLogin)).perform(click());
+        onView(withId(R.id.btn_Login_main)).perform(click());
         onView(withId(R.id.editUserName))
                 .perform(typeText("admin"), closeSoftKeyboard());
         onView(withId(R.id.editPassword))
