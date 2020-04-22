@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btn_sort = findViewById(R.id.btn_sort);
-        Button btn_login = findViewById(R.id.btnLogin);
+        Button btn_login = findViewById(R.id.btn_Login_main);
         Button btn_filter = findViewById(R.id.btn_filter);
         switchToHotelView(btn_sort);
         switchToLoginView(btn_login);
