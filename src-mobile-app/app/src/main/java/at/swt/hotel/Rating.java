@@ -15,5 +15,5 @@ public class Rating {
     public String comment;
 
     @ColumnInfo(name = "user")
-    public User user;
+    public String user;
 }
