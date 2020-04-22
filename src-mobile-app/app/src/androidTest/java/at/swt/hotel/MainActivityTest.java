@@ -30,8 +30,12 @@ public class MainActivityTest {
                 .perform(typeText("Hello"), closeSoftKeyboard());
         onView(withId(R.id.btn_filter)).perform(click());
         onView(withId(R.id.btn_sort)).perform(click());
-
     }
 
+    @Test
+    public void ratingStarTest() {
+
+
+    }
 
 }

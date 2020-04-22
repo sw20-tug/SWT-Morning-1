@@ -18,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
         switchToHotelView(btn_sort);
         switchToLoginView(btn_login);
     }
-
-
+    
     public void switchToHotelView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
