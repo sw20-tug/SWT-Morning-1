@@ -23,8 +23,6 @@ public class DataInitializer extends AppCompatActivity {
         return db;
     }
 
-
-
     private void initBasicData() {
         Rating ratingHotel1 = new Rating();
         ratingHotel1.comment = "Moderne Ausstattung, sehr gute Lage, tolles Design. Nicht gefallen · Der Trend zu Badezimmern mit Glaswänden und halbdurchsichtigen Vorhängen ist für Pärchen ggf. ganz nett. Für alle anderen kann es schnell auch unangenehm werden.";
@@ -194,30 +192,30 @@ public class DataInitializer extends AppCompatActivity {
         thirdHotel.pictures.add("hotel3_5.jpg");
 
         Rating ratingHotel4_1 = new Rating();
-        ratingHotel3_1.comment = "Tolle Location, super freundlich. Ein wirklich tolles, hippes Design (außen Jugendstil, innen künstlerisch gestaltet, modern), " +
+        ratingHotel4_1.comment = "Tolle Location, super freundlich. Ein wirklich tolles, hippes Design (außen Jugendstil, innen künstlerisch gestaltet, modern), " +
                 "ein fabelhaftes Frühstück und wirklich nettes Personal. Sehr nah zur Innenstadt. Würde wiederkommen.";
-        ratingHotel3_1.rating = 9;
-        ratingHotel3_1.user = "Hans";
+        ratingHotel4_1.rating = 9;
+        ratingHotel4_1.user = "Hans";
 
         Rating ratingHotel4_2 = new Rating();
-        ratingHotel3_2.comment = "Everybody was very helpful and very friendly. Also the dinner was a real experience and the service was excellent. " +
+        ratingHotel4_2.comment = "Everybody was very helpful and very friendly. Also the dinner was a real experience and the service was excellent. " +
                 "It is seen the staff enjoys and know what they do. Very recommendable. Thanks!";
-        ratingHotel3_2.rating = 8;
-        ratingHotel3_2.user = "Peter";
+        ratingHotel4_2.rating = 8;
+        ratingHotel4_2.user = "Peter";
 
         Rating ratingHotel4_3 = new Rating();
-        ratingHotel3_3.comment = "Rooms have a great comfort, very modern and clean hotel, quiet as well, although in center. breakfast is amazing. " +
+        ratingHotel4_3.comment = "Rooms have a great comfort, very modern and clean hotel, quiet as well, although in center. breakfast is amazing. " +
                 "Staff is very friendly. Definetly will return!";
-        ratingHotel3_3.rating = 10;
-        ratingHotel3_3.user = "Bob";
+        ratingHotel4_3.rating = 10;
+        ratingHotel4_3.user = "Bob";
 
         HotelActivity activityHotel4_1 = new HotelActivity();
-        activityHotel3_1.type = "Fitnesscenter";
-        activityHotel3_1.description = "Fitnesscenter";
+        activityHotel4_1.type = "Fitnesscenter";
+        activityHotel4_1.description = "Fitnesscenter";
 
         HotelActivity activityHotel4_2 = new HotelActivity();
-        activityHotel3_2.type = "Spa und Wellnesscenter";
-        activityHotel3_2.description = "Spa und Wellnesscenter";
+        activityHotel4_2.type = "Spa und Wellnesscenter";
+        activityHotel4_2.description = "Spa und Wellnesscenter";
 
         Hotel fourthHotel = new Hotel();
         fourthHotel.name = "Grand Hotel Wiesler";
