@@ -34,7 +34,7 @@ public class Hotel {
     public int stars;
 
     @ColumnInfo(name= "pictures")
-    public List<byte[]> pictures;
+    public List<String> pictures;
 
     @ColumnInfo(name = "ratings")
     public List<Rating> ratings;
