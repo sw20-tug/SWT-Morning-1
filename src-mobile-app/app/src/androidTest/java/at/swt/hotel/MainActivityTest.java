@@ -49,11 +49,12 @@ public class MainActivityTest {
                 .perform(typeText("admin"), closeSoftKeyboard());
         onView(withId(R.id.editPassword))
                 .perform(typeText("password"), closeSoftKeyboard());
-        onView(withId(R.id.btn_login_loginactivity)).perform(click());
         onView(withId(R.id.editUserName))
                 .check(matches(withText("admin")));
         onView(withId(R.id.editPassword))
                 .check(matches(withText("password")));
+        onView(withId(R.id.btn_login_loginactivity)).perform(click());
+
     }
 
     @Test
