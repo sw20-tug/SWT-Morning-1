@@ -6,10 +6,27 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "user")
 public class User {
 
-    @PrimaryKey(autoGenerate = true)
+    public User(
+            final int    id,
+            final String name,
+            final String email,
+            final byte[] password_hash,
+            final byte[] seed
+    ) {
+        this.id            = id;
+        this.name          = name;
+        this.email         = email;
+        this.password_hash = password_hash;
+        this.seed          = seed;
+    }
+
+    public User(){}
+
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     public int id;
 
     @ColumnInfo(name = "name")
