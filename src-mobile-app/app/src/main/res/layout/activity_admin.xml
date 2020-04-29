@@ -23,8 +23,10 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="272dp"
         android:text="Delete Hotel"
+        app:layout_constraintBottom_toTopOf="@+id/btn_SearchHotel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
 
     <Button
         android:id="@+id/btn_edit_hotel"
@@ -40,9 +42,9 @@
         android:id="@+id/btn_SearchHotel"
         android:layout_width="71dp"
         android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_edit_hotel"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
@@ -51,22 +53,23 @@
         android:id="@+id/edit_search_hotel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Search Hotel"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintBottom_toTopOf="@+id/btn_change_price"
+        app:layout_constraintEnd_toStartOf="@+id/btn_SearchHotel"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_delete" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit_hotel"
+        app:layout_constraintVertical_bias="0.504" />
 
     <ImageButton
         android:id="@+id/btn_back_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="132dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_search_hotel"
         app:srcCompat="?attr/homeAsUpIndicator" />
@@ -75,10 +78,10 @@
         android:id="@+id/btn_change_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:text="Change Price"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_SearchHotel" />
 
