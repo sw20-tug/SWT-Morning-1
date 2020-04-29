@@ -29,6 +29,8 @@ public class Hotel {
         this.stars = stars;
     }
 
+    public Hotel(){}
+
     @PrimaryKey
     @ColumnInfo(name = "id")
     public int id;
@@ -53,6 +55,5 @@ public class Hotel {
 
     @ColumnInfo(name = "stars")
     public int stars;
-
 }
 
