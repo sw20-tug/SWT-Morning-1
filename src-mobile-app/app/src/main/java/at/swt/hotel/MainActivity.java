@@ -10,6 +10,7 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,9 +46,22 @@ public class MainActivity extends AppCompatActivity {
             Log.d("USER_DEBUG", u.name);
         }
 
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n");
+        sb.append("\n");
+        sb.append("\n");
+        sb.append("\n");
+        sb.append("\n");
+        sb.append("Available Hotels: \n");
+        sb.append("\n");
         for (Hotel h : db.hotelDao().getHotels()) {
             Log.d("HOTEL_DEBUG", h.name);
+            sb.append(h.name);
+            sb.append("\n");
         }
+
+        TextView sprintHotel = (TextView) findViewById(R.id.hotel_info);
+        sprintHotel.setText(sb.toString());
 
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
