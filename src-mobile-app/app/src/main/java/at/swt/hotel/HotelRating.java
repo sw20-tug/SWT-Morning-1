@@ -20,6 +20,8 @@ public class HotelRating {
         this.comment = comment;
     }
 
+    public HotelRating(){};
+
     @PrimaryKey(autoGenerate = true)
     public int id;
 

@@ -23,6 +23,8 @@ public class User {
         this.seed          = seed;
     }
 
+    public User(){}
+
     @PrimaryKey
     @ColumnInfo(name = "id")
     public int id;

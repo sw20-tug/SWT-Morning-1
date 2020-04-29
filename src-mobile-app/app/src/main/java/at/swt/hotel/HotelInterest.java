@@ -18,6 +18,8 @@ public class HotelInterest {
         this.description = description;
     }
 
+    public HotelInterest(){}
+
     @PrimaryKey(autoGenerate = true)
     public int id;
 
