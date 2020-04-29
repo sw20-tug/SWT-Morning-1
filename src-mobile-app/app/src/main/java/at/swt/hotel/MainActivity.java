@@ -1,6 +1,7 @@
 package at.swt.hotel;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     public static final String DB_NAME = "Hotel_db";
+    private boolean firstRun = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +29,24 @@ public class MainActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build();
 
-        //TODO: fill database like this
-        db.userDao().insertAll(new User(1,"LustMolch", "test@test.com", null, null));
+        SharedPreferences preferences = getSharedPreferences("HOTEL_PREFS", 0);
+        firstRun = preferences.getBoolean("FIRST_RUN", true);
+        if (firstRun)
+        {
+            DataInitializer dataInitializer = new DataInitializer();
+            dataInitializer.initBasicData(db);
+            preferences = getSharedPreferences("HOTEL_PREFS", 0);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("FIRST_RUN", false);
+            editor.apply();
+        }
 
         for (User u : db.userDao().getAll()) {
-            Log.d("HOTEL_DEBUG", u.name);
+            Log.d("USER_DEBUG", u.name);
+        }
+
+        for (Hotel h : db.hotelDao().getHotels()) {
+            Log.d("HOTEL_DEBUG", h.name);
         }
 
         Button btn_sort = findViewById(R.id.btn_sort);
