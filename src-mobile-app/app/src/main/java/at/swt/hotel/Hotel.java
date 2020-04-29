@@ -6,10 +6,33 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "hotel")
 public class Hotel {
 
-    @PrimaryKey(autoGenerate = true)
+    public Hotel(
+            final int                 id,
+            final String              name,
+            final String              location,
+            final String              price,
+            final String              category,
+            final String              description,
+            final byte[]              thumbnail,
+            final int                 stars
+    ) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.price = price;
+        this.category = category;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.stars = stars;
+    }
+
+    public Hotel(){}
+
+    @PrimaryKey
+    @ColumnInfo(name = "id")
     public int id;
 
     @ColumnInfo(name = "name")
@@ -32,14 +55,5 @@ public class Hotel {
 
     @ColumnInfo(name = "stars")
     public int stars;
-
-    @ColumnInfo(name= "pictures")
-    public List<String> pictures;
-
-    @ColumnInfo(name = "ratings")
-    public List<Rating> ratings;
-
-    @ColumnInfo(name = "activities")
-    public List<HotelActivity> activities;
 }
 
