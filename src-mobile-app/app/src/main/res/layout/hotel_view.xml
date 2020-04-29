@@ -11,7 +11,7 @@
                 android:layout_width="match_parent"
                 android:background="#c1c1c1"
                 android:layout_height="300dp"
-                android:src="@drawable/hotel_1"/>
+                android:src="@drawable/hotel3_1"/>
 
             <TextView
                 android:id="@+id/textView15"
@@ -24,7 +24,7 @@
                 android:background="#c1c1c1"
                 android:layout_height="300dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/hotel_2"/>
+                android:src="@drawable/hotel3_2"/>
 
             <TextView
                 android:id="@+id/textView16"
@@ -37,7 +37,7 @@
                 android:background="#c1c1c1"
                 android:layout_height="300dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/hotel_3"/>
+                android:src="@drawable/hotel3_3"/>
 
             <TextView
                 android:id="@+id/textView17"
@@ -50,7 +50,7 @@
                 android:background="#c1c1c1"
                 android:layout_height="300dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/hotel_1"/>
+                android:src="@drawable/hotel4_1"/>
 
             <TextView
                 android:id="@+id/textView18"
@@ -63,7 +63,7 @@
                 android:background="#c1c1c1"
                 android:layout_height="300dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/hotel_2"/>
+                android:src="@drawable/hotel4_2"/>
 
             <TextView
                 android:id="@+id/textView19"
