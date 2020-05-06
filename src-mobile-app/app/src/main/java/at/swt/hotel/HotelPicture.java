@@ -10,11 +10,13 @@ public class HotelPicture {
 
     public HotelPicture(
             final int    hotelId,
-            final byte[] picture
+            final int picture
     ) {
         this.hotelId = hotelId;
         this.picture = picture;
     }
+
+    public HotelPicture() {}
 
     @PrimaryKey(autoGenerate = true)
     public int id;
@@ -23,5 +25,5 @@ public class HotelPicture {
     public int hotelId;
 
     @ColumnInfo(name = "picture")
-    public byte[] picture;
+    public int picture;
 }
