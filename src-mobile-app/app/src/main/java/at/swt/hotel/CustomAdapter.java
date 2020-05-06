@@ -14,20 +14,28 @@ public class CustomAdapter extends BaseAdapter {
     Context context;
     List<Hotel> hotelList;
     String[] hotelNames;
-    int pictures[];
+    List<HotelPicture> pictureList;
     LayoutInflater inflter;
+    int[] hotelPictures;
 
-    public CustomAdapter(Context applicationContext, List<Hotel> hotelList, int[] pictures) {
+    public CustomAdapter(Context applicationContext, List<Hotel> hotelList, List<HotelPicture> picturesList) {
         this.context = context;
         this.hotelList = hotelList;
-        this.pictures = pictures;
+        this.pictureList = picturesList;
         inflter = (LayoutInflater.from(applicationContext));
         hotelNames = new String[hotelList.size()];
+        hotelPictures = new int[hotelList.size()];
         int position = 0;
         for(Hotel h : hotelList){
             hotelNames[position++] = h.name;
         }
+        for(HotelPicture hp : pictureList){
+            //if(hotelPictures[hp.hotelId] == 0) {
+                hotelPictures[hp.hotelId-1] = hp.picture; // TODO: improve this solution
+            //}
+        }
     }
+
 
     @Override
     public int getCount() {
@@ -51,7 +59,7 @@ public class CustomAdapter extends BaseAdapter {
         ImageView picture = (ImageView)view.findViewById(R.id.hotel_picture);
 
         hotelName.setText(hotelNames[i]);
-        picture.setImageResource(pictures[i]);
+        picture.setImageResource(hotelPictures[i]);
         return view;
     }
 }
