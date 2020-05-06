@@ -5,11 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -17,11 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String DB_NAME = "Hotel_db";
     private boolean firstRun = false;
+    private ListView hotelList;
+
+    private int pictures[] = {R.drawable.hotel_1,R.drawable.hotel_2,R.drawable.hotel_3,R.drawable.hotel4_1};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        hotelList = (ListView) findViewById(R.id.hotel_list);
+
 
         AppDatabase db = Room.databaseBuilder(
                 getApplicationContext(),
@@ -42,26 +52,6 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
 
-        for (User u : db.userDao().getAll()) {
-            Log.d("USER_DEBUG", u.name);
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("Available Hotels: \n");
-        sb.append("\n");
-        for (Hotel h : db.hotelDao().getHotels()) {
-            Log.d("HOTEL_DEBUG", h.name);
-            sb.append(h.name);
-            sb.append("\n");
-        }
-
-        TextView sprintHotel = (TextView) findViewById(R.id.hotel_info);
-        sprintHotel.setText(sb.toString());
 
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
@@ -69,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         switchToHotelView(btn_sort);
         switchToLoginView(btn_login);
         switchToFilterView(btn_filter);
+
+
+        List<Hotel> hotels = db.hotelDao().getHotels();
+
+
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),hotels, pictures);
+        hotelList.setAdapter(customAdapter);
+
     }
     
     public void switchToHotelView(Button btn) {

@@ -91,6 +91,10 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel1_4.description = "Kino";
         interestHotel1_4.hotelId = firstHotel.id;
 
+        HotelPicture hotelPicture1 = new HotelPicture();
+        hotelPicture1.hotelId = 1;
+        hotelPicture1.picture = R.drawable.hotel_1;
+
         // --------------- HOTEL 2 ---------------
         Hotel secondHotel = new Hotel();
         secondHotel.id = 2;
@@ -163,6 +167,10 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel2_4.description = "Bungee Jumping";
         interestHotel2_4.hotelId = secondHotel.id;
 
+        HotelPicture hotelPicture2 = new HotelPicture();
+        hotelPicture2.hotelId = 2;
+        hotelPicture2.picture = R.drawable.hotel_2;
+
 
         // --------------- HOTEL 3 ---------------
         Hotel thirdHotel = new Hotel();
@@ -234,6 +242,10 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel3_4.description = "Billard";
         interestHotel3_4.hotelId = thirdHotel.id;
 
+        HotelPicture hotelPicture3 = new HotelPicture();
+        hotelPicture3.hotelId = 3;
+        hotelPicture3.picture = R.drawable.hotel_3;
+
         // --------------- HOTEL 4 ---------------
         Hotel fourthHotel = new Hotel();
         fourthHotel.id = 4;
@@ -293,6 +305,10 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel4_2.type = "Spa und Wellnesscenter";
         interestHotel4_2.description = "Spa und Wellnesscenter";
         interestHotel4_2.hotelId = fourthHotel.id;
+
+        HotelPicture hotelPicture4 = new HotelPicture();
+        hotelPicture4.hotelId = 4;
+        hotelPicture4.picture = R.drawable.hotel4_1;
 
         // insert data into database
         db.userDao().insertAll(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12);
