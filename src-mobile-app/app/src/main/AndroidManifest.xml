@@ -16,14 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".HotelViewActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".FilterActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".DetailActivity" />
-
     </application>
-
 
 </manifest>
