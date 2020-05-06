@@ -15,7 +15,7 @@ public class DataInitializer extends AppCompatActivity {
     public static final String DB_NAME = "Hotel_db";
 
 
-    private void initBasicData(AppDatabase db) {
+    public void initBasicData(AppDatabase db) {
         // --------------- HOTEL 1 ---------------
         Hotel firstHotel = new Hotel();
         firstHotel.id = 1;
@@ -34,14 +34,18 @@ public class DataInitializer extends AppCompatActivity {
         user1.name = "Mausi Lugner";
 
         User user2 = new User();
-        user1.email = "user2@test.com";
-        user1.id = 2;
-        user1.name = "User 2";
+        user2.email = "user2@test.com";
+        user2.id = 2;
+        user2.name = "User 2";
 
         User user3 = new User();
-        user1.email = "user3@test.com";
-        user1.id = 3;
-        user1.name = "User 3";
+        user3.email = "user3@test.com";
+        user3.id = 3;
+        user3.name = "User 3";
+
+        String rating1 = "Moderne Ausstattung, sehr gute Lage, tolles Design. Nicht gefallen · Der Trend zu Badezimmern mit Glaswänden und halbdurchsichtigen Vorhängen ist für Pärchen ggf. ganz nett. Für alle anderen kann es schnell auch unangenehm werden.";
+
+        HotelRating ratingHotel1 = new HotelRating(1,0,7,rating1);
 
         HotelRating ratingHotel1_1 = new HotelRating();
         ratingHotel1_1.comment = "Moderne Ausstattung, sehr gute Lage, tolles Design. Nicht gefallen · Der Trend zu Badezimmern mit Glaswänden und halbdurchsichtigen Vorhängen ist für Pärchen ggf. ganz nett. Für alle anderen kann es schnell auch unangenehm werden.";
@@ -101,19 +105,19 @@ public class DataInitializer extends AppCompatActivity {
         secondHotel.location = "Feld 2, 4853 Steinbach am Attersee";
 
         User user4 = new User();
-        user1.email = "user4@test.com";
-        user1.id = 4;
-        user1.name = "User 4";
+        user4.email = "user4@test.com";
+        user4.id = 4;
+        user4.name = "User 4";
 
         User user5 = new User();
-        user1.email = "user5@test.com";
-        user1.id = 5;
-        user1.name = "User 5";
+        user5.email = "user5@test.com";
+        user5.id = 5;
+        user5.name = "User 5";
 
         User user6 = new User();
-        user1.email = "user6@test.com";
-        user1.id = 6;
-        user1.name = "User 6";
+        user6.email = "user6@test.com";
+        user6.id = 6;
+        user6.name = "User 6";
 
         HotelRating ratingHotel2_1 = new HotelRating();
         ratingHotel2_1.comment = "+Betreiber super nett, Aussicht war trotz Regen super, ein tolles Erlebnis.\n" +
@@ -175,19 +179,19 @@ public class DataInitializer extends AppCompatActivity {
         thirdHotel.location = "Eggenberger Straße 7, Gries, 8020 Graz, Österreich";
 
         User user7 = new User();
-        user1.email = "user7@test.com";
-        user1.id = 7;
-        user1.name = "User 7";
+        user7.email = "user7@test.com";
+        user7.id = 7;
+        user7.name = "User 7";
 
         User user8 = new User();
-        user1.email = "user8@test.com";
-        user1.id = 8;
-        user1.name = "User 8";
+        user8.email = "user8@test.com";
+        user8.id = 8;
+        user8.name = "User 8";
 
         User user9 = new User();
-        user1.email = "user9@test.com";
-        user1.id = 9;
-        user1.name = "User 9";
+        user9.email = "user9@test.com";
+        user9.id = 9;
+        user9.name = "User 9";
 
         HotelRating ratingHotel3_1 = new HotelRating();
         ratingHotel3_1.comment = "Das Frühstück war sehr gut, die Abwicklung sehr unkompliziert.\n" +
@@ -245,19 +249,19 @@ public class DataInitializer extends AppCompatActivity {
         fourthHotel.location = "Grieskai 4-8, Gries, 8020 Graz, Österreich";
 
         User user10 = new User();
-        user1.email = "user10@test.com";
-        user1.id = 10;
-        user1.name = "User 10";
+        user10.email = "user10@test.com";
+        user10.id = 10;
+        user10.name = "User 10";
 
         User user11 = new User();
-        user1.email = "user11@test.com";
-        user1.id = 11;
-        user1.name = "User 11";
+        user11.email = "user11@test.com";
+        user11.id = 11;
+        user11.name = "User 11";
 
         User user12 = new User();
-        user1.email = "user12@test.com";
-        user1.id = 12;
-        user1.name = "User 12";
+        user12.email = "user12@test.com";
+        user12.id = 12;
+        user12.name = "User 12";
 
         HotelRating ratingHotel4_1 = new HotelRating();
         ratingHotel4_1.comment = "Tolle Location, super freundlich. Ein wirklich tolles, hippes Design (außen Jugendstil, innen künstlerisch gestaltet, modern), " +
@@ -299,7 +303,5 @@ public class DataInitializer extends AppCompatActivity {
         db.hotelDao().insertHotelInterests(interestHotel1_1, interestHotel1_2, interestHotel1_3, interestHotel1_4,
                 interestHotel2_1, interestHotel2_2, interestHotel2_3, interestHotel2_4, interestHotel3_1, interestHotel3_2,
                 interestHotel3_3, interestHotel3_4, interestHotel4_1, interestHotel4_2);
-    }
-    public void init() {
     }
 }

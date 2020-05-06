@@ -1,5 +1,6 @@
 package at.swt.hotel;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,14 +35,14 @@ public class ActivityFilterTest {
     @Test
     public void ChangeText_sameActivity() {
 
-        onView(withId(R.id.edit_location))
+        onView(withId(R.id.editFilterLocation))
                 .perform(typeText(MESSAGE), closeSoftKeyboard());
-
+        onView(withId(R.id.editFilterLocation))
+                .check(matches(withText(MESSAGE)));
         onView(withId(R.id.btnFilterSearch))
                 .perform(click());
 
-        onView(withId(R.id.edit_location))
-                .check(matches(withText(MESSAGE)));
+
 
         //onView(withId(R.id.send_message)).perform(click())
 
