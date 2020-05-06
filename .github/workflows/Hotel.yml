@@ -32,3 +32,17 @@ jobs:
     - name: Execute unit tests
       run: ./gradlew test
       working-directory: ${{env.working-directory}}
+
+
+  test_android:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Execute anroid tests
+      uses: vgaidarji/android-github-actions-emulator@v1.0.1
