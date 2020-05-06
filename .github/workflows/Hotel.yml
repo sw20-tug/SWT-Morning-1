@@ -5,6 +5,9 @@ on: [pull_request]
 jobs:
   build:
 
+    env: 
+      working-directory: ./src-mobile-app
+
     runs-on: ubuntu-latest
 
     steps:
@@ -14,6 +17,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./src-mobile-app/gradlew build
+      run: ./gradlew build
     - name: Execute unit tests
-      run: ./src-mobile-app/gradlew test
+      run: ./gradlew test
