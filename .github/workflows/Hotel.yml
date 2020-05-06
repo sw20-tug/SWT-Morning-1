@@ -39,6 +39,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Execute anroid tests
-      uses: vgaidarji/android-github-actions-emulator@v1.0.1
+    - name: Execute android tests
+      uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedAndroidTest
