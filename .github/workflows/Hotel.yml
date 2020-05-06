@@ -34,7 +34,7 @@ jobs:
       working-directory: ${{env.working-directory}}
 
 
-  test_nunit:
+  test_android:
 
     env: 
       working-directory: src-mobile-app
