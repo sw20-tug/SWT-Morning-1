@@ -32,15 +32,3 @@ jobs:
     - name: Execute unit tests
       run: ./gradlew test
       working-directory: ${{env.working-directory}}
-
-
-  test_android:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Execute android tests
-      uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew connectedAndroidTest
