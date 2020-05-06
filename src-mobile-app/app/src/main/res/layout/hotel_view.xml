@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollHotel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#c1c1c1"
+                android:layout_height="300dp"
+                android:src="@drawable/hotel3_1"/>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hotel 1" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#c1c1c1"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/hotel3_2"/>
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hotel 2" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#c1c1c1"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/hotel3_3"/>
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hotel 3" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#c1c1c1"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/hotel4_1"/>
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hotel 4" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#c1c1c1"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/hotel4_2"/>
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hotel 5" />
+        </LinearLayout>
+    </ScrollView>
