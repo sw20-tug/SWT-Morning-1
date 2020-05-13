@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.graphics.Picture;
 import android.os.Bundle;
 import android.util.Log;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,11 +62,15 @@ public class MainActivity extends AppCompatActivity {
         switchToLoginView(btn_login);
         switchToFilterView(btn_filter);
 
-
+        List<HotelContainer> hotelC = new ArrayList<>();
         List<Hotel> hotels = db.hotelDao().getHotels();
-        List<HotelPicture> hotelpictures = db.hotelDao().getHotelPictures();
+        for(Hotel hotel : hotels){
+            List<HotelPicture> hpic = db.hotelDao().getHotelPictures(hotel.id);
+            List<HotelInterest> hint = db.hotelDao().getHotelInterests(hotel.id);
+            hotelC.add(new HotelContainer(hotel,hpic,hint));
+        }
 
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotels, hotelpictures);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotelC);
         hotelList.setAdapter(customAdapter);
 
     }

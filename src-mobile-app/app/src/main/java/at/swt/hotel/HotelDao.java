@@ -13,11 +13,11 @@ public interface HotelDao {
     @Query("SELECT * FROM hotel")
     List<Hotel> getHotels();
 
-    @Query("SELECT * FROM hotelinterest")
-    List<HotelInterest> getHotelInterests();
+    @Query("SELECT * FROM hotelinterest WHERE hotelId IS :hotel_id")
+    List<HotelInterest> getHotelInterests(int hotel_id);
 
-    @Query("SELECT * FROM hotelpicture")
-    List<HotelPicture> getHotelPictures();
+    @Query("SELECT * FROM hotelpicture WHERE hotelId IS :hotel_id")
+    List<HotelPicture> getHotelPictures(int hotel_id);
 
     @Query("SELECT * FROM hotelrating")
     List<HotelRating> getHotelratings();
