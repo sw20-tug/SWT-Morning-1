@@ -29,6 +29,7 @@ public class Hotel {
         this.stars = stars;
     }
 
+
     public Hotel(){}
 
     @PrimaryKey
