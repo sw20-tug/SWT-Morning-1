@@ -33,17 +33,19 @@ jobs:
       run: ./gradlew test
       working-directory: ${{env.working-directory}}
       
-  test_android_front-end:
+  test_android:
   
+    env: 
+      working-directory: src-mobile-app
+      
     runs-on: ubuntu-latest
     
     steps:
+    - name: Execute android front-end tests
       uses: reactivecircus/android-emulator-runner@v2.6.1
     with:
       api-level: 29
       target: default
       arch: x86
       profile: Nexus 5X
-      script: ./gradlew connectedAndroidTest --stacktrace
-
-  
+      script: ./gradlew connectedCheck --stacktrace
