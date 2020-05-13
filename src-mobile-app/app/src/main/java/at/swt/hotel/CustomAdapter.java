@@ -1,6 +1,7 @@
 package at.swt.hotel;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    public Object getItem(int i) {return null;}
 
     @Override
     public long getItemId(int i) {
