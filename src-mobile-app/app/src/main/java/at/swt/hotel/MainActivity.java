@@ -2,14 +2,18 @@ package at.swt.hotel;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Picture;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -17,11 +21,17 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String DB_NAME = "Hotel_db";
     private boolean firstRun = false;
+    private ListView hotelList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        hotelList = (ListView) findViewById(R.id.hotel_list);
+
 
         AppDatabase db = Room.databaseBuilder(
                 getApplicationContext(),
@@ -42,26 +52,6 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
 
-        for (User u : db.userDao().getAll()) {
-            Log.d("USER_DEBUG", u.name);
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("\n");
-        sb.append("Available Hotels: \n");
-        sb.append("\n");
-        for (Hotel h : db.hotelDao().getHotels()) {
-            Log.d("HOTEL_DEBUG", h.name);
-            sb.append(h.name);
-            sb.append("\n");
-        }
-
-        TextView sprintHotel = (TextView) findViewById(R.id.hotel_info);
-        sprintHotel.setText(sb.toString());
 
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
@@ -69,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         switchToHotelView(btn_sort);
         switchToLoginView(btn_login);
         switchToFilterView(btn_filter);
+
+
+        List<Hotel> hotels = db.hotelDao().getHotels();
+        List<HotelPicture> hotelpictures = db.hotelDao().getHotelPictures();
+
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotels, hotelpictures);
+        hotelList.setAdapter(customAdapter);
+
     }
     
     public void switchToHotelView(Button btn) {
@@ -82,18 +80,6 @@ public class MainActivity extends AppCompatActivity {
          });
     }
 
-    private void addHotel(
-            final AppDatabase   db,
-            final Hotel         hotel,
-            final HotelInterest hotelInterest,
-            final HotelPicture  hotelPicture,
-            final HotelRating   hotelRating) {
-
-        db.hotelDao().insertHotels(hotel);
-        db.hotelDao().insertHotelInterests(hotelInterest);
-        db.hotelDao().insertHotelPictures(hotelPicture);
-        db.hotelDao().insertHotelRatings(hotelRating);
-    }
 
     public void switchToLoginView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {

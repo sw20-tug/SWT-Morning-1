@@ -91,6 +91,11 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel1_4.description = "Kino";
         interestHotel1_4.hotelId = firstHotel.id;
 
+        HotelPicture hotelPicture1 = new HotelPicture();
+        hotelPicture1.id = 1;
+        hotelPicture1.hotelId = 1;
+        hotelPicture1.picture = R.drawable.hotel_1;
+
         // --------------- HOTEL 2 ---------------
         Hotel secondHotel = new Hotel();
         secondHotel.id = 2;
@@ -163,6 +168,11 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel2_4.description = "Bungee Jumping";
         interestHotel2_4.hotelId = secondHotel.id;
 
+        HotelPicture hotelPicture2 = new HotelPicture();
+        hotelPicture2.id = 2;
+        hotelPicture2.hotelId = 2;
+        hotelPicture2.picture = R.drawable.hotel_2;
+
 
         // --------------- HOTEL 3 ---------------
         Hotel thirdHotel = new Hotel();
@@ -234,6 +244,11 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel3_4.description = "Billard";
         interestHotel3_4.hotelId = thirdHotel.id;
 
+        HotelPicture hotelPicture3 = new HotelPicture();
+        hotelPicture3.id = 3;
+        hotelPicture3.hotelId = 3;
+        hotelPicture3.picture = R.drawable.hotel_3;
+
         // --------------- HOTEL 4 ---------------
         Hotel fourthHotel = new Hotel();
         fourthHotel.id = 4;
@@ -294,6 +309,12 @@ public class DataInitializer extends AppCompatActivity {
         interestHotel4_2.description = "Spa und Wellnesscenter";
         interestHotel4_2.hotelId = fourthHotel.id;
 
+        HotelPicture hotelPicture4 = new HotelPicture();
+        hotelPicture4.id = 4;
+        hotelPicture4.hotelId = 4;
+        hotelPicture4.picture = R.drawable.hotel4_1;
+
+
         // insert data into database
         db.userDao().insertAll(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12);
 
@@ -303,5 +324,6 @@ public class DataInitializer extends AppCompatActivity {
         db.hotelDao().insertHotelInterests(interestHotel1_1, interestHotel1_2, interestHotel1_3, interestHotel1_4,
                 interestHotel2_1, interestHotel2_2, interestHotel2_3, interestHotel2_4, interestHotel3_1, interestHotel3_2,
                 interestHotel3_3, interestHotel3_4, interestHotel4_1, interestHotel4_2);
+        db.hotelDao().insertHotelPictures(hotelPicture1, hotelPicture2, hotelPicture3, hotelPicture4);
     }
 }

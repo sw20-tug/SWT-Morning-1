@@ -10,18 +10,20 @@ public class HotelPicture {
 
     public HotelPicture(
             final int    hotelId,
-            final byte[] picture
+            final int picture
     ) {
         this.hotelId = hotelId;
         this.picture = picture;
     }
 
-    @PrimaryKey(autoGenerate = true)
+    public HotelPicture() {}
+
+    @PrimaryKey
     public int id;
 
     @ForeignKey(entity = Hotel.class, parentColumns = "id", childColumns = "hotelId")
     public int hotelId;
 
     @ColumnInfo(name = "picture")
-    public byte[] picture;
+    public int picture;
 }
