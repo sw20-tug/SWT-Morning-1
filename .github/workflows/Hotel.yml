@@ -35,7 +35,10 @@ jobs:
       working-directory: ${{env.working-directory}}
       
   test_android:
-
+    
+    env: 
+      working-directory: src-mobile-app
+      
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -43,6 +46,7 @@ jobs:
 
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+      working-directory: ${{env.working-directory}}
     
     - name: Execute android front-end tests
       uses: reactivecircus/android-emulator-runner@v2
@@ -52,3 +56,4 @@ jobs:
         arch: x86
         profile: Nexus 6
         script: ./gradlew connectedCheck --stacktrace
+        working-directory: ${{env.working-directory}}
