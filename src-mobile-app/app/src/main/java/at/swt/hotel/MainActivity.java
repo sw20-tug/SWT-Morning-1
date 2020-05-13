@@ -1,10 +1,14 @@
 package at.swt.hotel;
 
 
+import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Picture;
 import android.os.Bundle;
 import android.util.Log;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,35 +29,29 @@ public class MainActivity extends AppCompatActivity {
     public static final String DB_NAME = "Hotel_db";
     private boolean firstRun = false;
     private ListView hotelList;
+    public static Context applicationContext;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        applicationContext = getApplicationContext();
 
 
         hotelList = (ListView) findViewById(R.id.hotel_list);
-
-        AppDatabase db = Room.databaseBuilder(
-                getApplicationContext(),
-                AppDatabase.class,
-                DB_NAME)
-                .allowMainThreadQueries()
-                .build();
 
         SharedPreferences preferences = getSharedPreferences("HOTEL_PREFS", 0);
         firstRun = preferences.getBoolean("FIRST_RUN", true);
         if (firstRun)
         {
-            DataInitializer dataInitializer = new DataInitializer();
-            dataInitializer.initBasicData(db);
+            HotelProvider.getInstance().initDataBase();
             preferences = getSharedPreferences("HOTEL_PREFS", 0);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("FIRST_RUN", false);
             editor.apply();
         }
-        ListView hotel_list = findViewById(R.id.hotel_list);
+
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
         Button btn_filter = findViewById(R.id.btn_filter);
@@ -90,22 +88,22 @@ public class MainActivity extends AppCompatActivity {
         switchToFilterView(btn_filter);
         logOutAdmin(btn_logout);
 
-
-
-
-        List<Hotel> hotels = db.hotelDao().getHotels();
-        List<HotelPicture> hotelpictures = db.hotelDao().getHotelPictures();
-
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotels, hotelpictures);
+        // TODO: Bernhard designs this more beautiful!
+        CustomAdapter customAdapter = new CustomAdapter(applicationContext, HotelProvider.getInstance().getHotelContainerList());
         hotelList.setAdapter(customAdapter);
-
-        deleteHotel(btn_delete, customAdapter,db);
-        editHotel(btn_edit, customAdapter, db);
-        addHotel(btn_add_hotel, customAdapter, db);
+        deleteHotel(btn_delete, customAdapter);
+        editHotel(btn_edit, customAdapter);
+        addHotel(btn_add_hotel, customAdapter);
 
     }
 
-    public void deleteHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+    public void refresh(List<HotelContainer> hotelContainers) {
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotelContainers);
+        hotelList.setAdapter(customAdapter);
+    }
+
+
+    public void deleteHotel(Button btn, final CustomAdapter adapter) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void editHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+    public void editHotel(Button btn, final CustomAdapter adapter) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void addHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+    public void addHotel(Button btn, final CustomAdapter adapter) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,15 +168,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    
     public void switchToHotelView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent HotelActivityIntent = new Intent(MainActivity.this, HotelViewActivity.class);
                 MainActivity.this.startActivity(HotelActivityIntent);
-
             }
          });
     }

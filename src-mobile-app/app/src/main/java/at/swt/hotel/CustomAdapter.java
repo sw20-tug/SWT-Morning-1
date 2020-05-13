@@ -13,31 +13,21 @@ import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
-    List<Hotel> hotelList;
+    List<HotelContainer> hotelList;
     String[] hotelNames;
-    List<HotelPicture> pictureList;
     LayoutInflater inflter;
     int[] hotelPictures;
 
-    public CustomAdapter(Context applicationContext, List<Hotel> hotelList, List<HotelPicture> picturesList) {
+    public CustomAdapter(Context applicationContext, List<HotelContainer> hotelList) {
         this.context = context;
         this.hotelList = hotelList;
-        this.pictureList = picturesList;
         inflter = (LayoutInflater.from(applicationContext));
         hotelNames = new String[hotelList.size()];
-        hotelPictures = new int[pictureList.size()];
+        hotelPictures = new int[hotelList.size()];
         int position = 0;
-        for(Hotel h : hotelList){
-            hotelNames[position++] = h.name;
-        }
-        Log.d("ADAPT","pictureList: " + pictureList.size());
-
-
-        for(HotelPicture hp : pictureList){
-            //if(hotelPictures[hp.hotelId] == 0) {
-            Log.d("ADAPT","index: " + (hp.hotelId-1));
-                hotelPictures[hp.hotelId-1] = hp.picture; // TODO: improve this solution
-            //}
+        for(HotelContainer h : hotelList){
+            hotelNames[position] = h.hotel.name;
+            hotelPictures[position++] = h.hotelpictures.get(0) == null ? null : h.hotelpictures.get(0).picture;
         }
     }
 
@@ -49,28 +39,6 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {return null;}
-
-    public Hotel getHotel(int id) {
-        int position = 0;
-        for(Hotel h : hotelList){
-            if(position == id){
-                return h;
-            }
-            position++;
-        }
-        return null;
-    }
-
-    public HotelPicture getHotelPicture(int id) {
-        int position = 0;
-        for(HotelPicture h : pictureList){
-            if(position == id){
-                return h;
-            }
-            position++;
-        }
-        return null;
-    }
 
     @Override
     public long getItemId(int i) {
