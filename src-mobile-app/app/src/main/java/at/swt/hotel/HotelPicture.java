@@ -18,7 +18,7 @@ public class HotelPicture {
 
     public HotelPicture() {}
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public int id;
 
     @ForeignKey(entity = Hotel.class, parentColumns = "id", childColumns = "hotelId")

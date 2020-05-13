@@ -2,6 +2,7 @@ package at.swt.hotel;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Picture;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.ArrayList;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean firstRun = false;
     private ListView hotelList;
 
-    private int pictures[] = {R.drawable.hotel_1,R.drawable.hotel_2,R.drawable.hotel_3,R.drawable.hotel4_1};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         List<Hotel> hotels = db.hotelDao().getHotels();
+        List<HotelPicture> hotelpictures = db.hotelDao().getHotelPictures();
 
-
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(),hotels, pictures);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotels, hotelpictures);
         hotelList.setAdapter(customAdapter);
 
     }
@@ -125,19 +125,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void addHotel(
-            final AppDatabase   db,
-            final Hotel         hotel,
-            final HotelInterest hotelInterest,
-            final HotelPicture  hotelPicture,
-            final HotelRating   hotelRating) {
-
-        db.hotelDao().insertHotels(hotel);
-        db.hotelDao().insertHotelInterests(hotelInterest);
-        db.hotelDao().insertHotelPictures(hotelPicture);
-        db.hotelDao().insertHotelRatings(hotelRating);
     }
 
     public void switchToLoginView(Button btn) {
