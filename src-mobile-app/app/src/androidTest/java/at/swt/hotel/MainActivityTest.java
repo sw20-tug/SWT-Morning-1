@@ -30,9 +30,8 @@ public class MainActivityTest {
     @Rule
     public ActivityTestRule<MainActivity> activityRule
             = new ActivityTestRule<>(MainActivity.class);
-
+/*
     @Test
-
     public void FirstTestActivity() {
         // Type text and then press the button.
         onView(withId(R.id.edit_location))
@@ -42,6 +41,8 @@ public class MainActivityTest {
                 .check(matches(withText("Hello")));
 
     }
+    
+ */
     @Test
     public void LoginTestActivity() {
         // Type text and then press the button.
