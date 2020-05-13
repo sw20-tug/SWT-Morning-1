@@ -20,8 +20,9 @@ jobs:
 
     env: 
       working-directory: src-mobile-app
-
-    runs-on: ubuntu-latest
+    
+    runs-on: macos-latest
+    #runs-on: ubuntu-latest 
 
     steps:
     - uses: actions/checkout@v2
@@ -40,6 +41,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
 
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+    
     - name: Execute android front-end tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
@@ -47,4 +51,4 @@ jobs:
         target: default
         arch: x86
         profile: Nexus 6
-        script: ./gradlew connectedCheck
+        script: ./gradlew connectedCheck --stacktrace
