@@ -12,45 +12,81 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/menubar"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="66dp"
 
-            android:orientation="horizontal"
             android:gravity="center_horizontal"
+            android:orientation="horizontal"
             android:weightSum="4">
 
             <Button
                 android:id="@+id/btn_sort"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="Sort"
-                android:layout_weight="1"/>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:text="Sort" />
+
+            <Button
+                android:id="@+id/btn_delete_hotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:text="Delete Hotel" />
 
             <Button
                 android:id="@+id/btn_filter"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
                 android:text="Filter" />
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:text="Logout" />
 
             <ImageButton
                 android:id="@+id/imageMainSearch"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignRight="@id/btn_Login_main"
+                android:layout_marginRight="-103dp"
                 app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
 
             <Button
-                android:id="@+id/btn_Login_main"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Switch To Login"
-              />
+                android:id="@+id/btn_add_hotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignRight="@id/btn_Login_main"
+                android:layout_marginRight="-103dp"
+                android:text="Add Hotel" />
 
-        </LinearLayout>
+            <Button
+            android:id="@+id/btn_Login_main"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignRight="@id/btn_sort"
+            android:layout_marginRight="-103dp"
+            android:text="Switch To Login"
+            android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/btn_editHotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_alignRight="@id/btn_sort"
+                android:layout_marginRight="-103dp"
+                android:text="Edit Hotel"
+                android:textAlignment="textStart" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
