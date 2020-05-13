@@ -13,8 +13,10 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         hotelList = (ListView) findViewById(R.id.hotel_list);
-
 
         AppDatabase db = Room.databaseBuilder(
                 getApplicationContext(),
@@ -51,14 +52,42 @@ public class MainActivity extends AppCompatActivity {
             editor.putBoolean("FIRST_RUN", false);
             editor.apply();
         }
-
-
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
         Button btn_filter = findViewById(R.id.btn_filter);
+        Button btn_delete = findViewById(R.id.btn_delete_hotel);
+        Button btn_edit = findViewById(R.id.btn_editHotel);
+        Button btn_logout = findViewById(R.id.btn_logout);
+        Button btn_add_hotel = findViewById(R.id.btn_add_hotel);
+        //ImageButton btn_search = findViewById(R.id.btn_delete_hotel)
+        btn_delete.setVisibility(View.INVISIBLE);
+        btn_edit.setVisibility(View.INVISIBLE);
+        btn_logout.setVisibility(View.INVISIBLE);
+        btn_add_hotel.setVisibility(View.INVISIBLE);
+
+        if (getIntent().getExtras() != null)
+        {
+            Bundle bun=getIntent().getExtras();
+            int val=bun.getInt("VAL");
+            if(val == 1) {
+                btn_delete.setVisibility(View.VISIBLE);
+                btn_edit.setVisibility(View.VISIBLE);
+                btn_logout.setVisibility(View.VISIBLE);
+                btn_add_hotel.setVisibility(View.VISIBLE);
+                btn_sort.setVisibility(View.INVISIBLE);
+                btn_login.setVisibility(View.INVISIBLE);
+                btn_filter.setVisibility(View.INVISIBLE);
+            } else if (val == 2) {
+                btn_delete.setVisibility(View.INVISIBLE);
+                btn_edit.setVisibility(View.INVISIBLE);
+                btn_logout.setVisibility(View.INVISIBLE);
+            }
+        }
         switchToHotelView(btn_sort);
         switchToLoginView(btn_login);
         switchToFilterView(btn_filter);
+        logOutAdmin(btn_logout);
+
 
 
         List<Hotel> hotels = db.hotelDao().getHotels();
@@ -80,6 +109,23 @@ public class MainActivity extends AppCompatActivity {
          });
     }
 
+    public void logOutAdmin(Button btn) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent LogoutIntent = new Intent(MainActivity.this, MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("VAL", 2);
+                getIntent().putExtras(bundle);
+                finish();
+                overridePendingTransition(0,0);
+                startActivity(getIntent());
+                overridePendingTransition(0,0);
+               // MainActivity.this.startActivity(LogoutIntent);
+
+            }
+        });
+    }
 
     public void switchToLoginView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
