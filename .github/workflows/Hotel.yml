@@ -49,3 +49,4 @@ jobs:
         arch: x86
         profile: Nexus 5X
         script: ./gradlew connectedCheck --stacktrace
+        working-directory: ${{env.working-directory}}
