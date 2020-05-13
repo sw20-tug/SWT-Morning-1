@@ -53,9 +53,9 @@ jobs:
     - name: Execute android front-end tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 23
+        api-level: 29
         target: default
         arch: x86
-        profile: Nexus 6
+        profile: Nexus 5X
         script: ./gradlew connectedCheck --stacktrace
         working-directory: ${{env.working-directory}}
