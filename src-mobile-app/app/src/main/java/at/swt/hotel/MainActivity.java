@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putBoolean("FIRST_RUN", false);
             editor.apply();
         }
+        ListView hotel_list = findViewById(R.id.hotel_list);
         Button btn_sort = findViewById(R.id.btn_sort);
         Button btn_login = findViewById(R.id.btn_Login_main);
         Button btn_filter = findViewById(R.id.btn_filter);
@@ -90,13 +92,85 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         List<Hotel> hotels = db.hotelDao().getHotels();
         List<HotelPicture> hotelpictures = db.hotelDao().getHotelPictures();
 
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), hotels, hotelpictures);
         hotelList.setAdapter(customAdapter);
 
+        deleteHotel(btn_delete, customAdapter,db);
+        editHotel(btn_edit, customAdapter, db);
+        addHotel(btn_add_hotel, customAdapter, db);
+
     }
+
+    public void deleteHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                hotelList.setAdapter(adapter);
+                hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView parent, View view, int position, long id) {
+                        /*Hotel hotel = adapter.getHotel(position);
+                        HotelPicture picture = adapter.getHotelPicture(position);
+                        // TODO: Hotelcontainer here!
+
+                        Log.d("MAIN", "name1: " + hotel.name);
+                        db.hotelDao().deleteHotelPicture(picture);
+                        db.hotelDao().deleteHotel(hotel);
+                        Log.d("MAIN", "position: " + position);
+                        finish();
+                        overridePendingTransition(0,0);
+                        startActivity(getIntent());
+                        overridePendingTransition(0,0);
+                         */
+                    }
+                });
+
+            }
+        });
+    }
+
+    public void editHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                hotelList.setAdapter(adapter);
+                hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView parent, View view, int position, long id) {
+                        Bundle bundle = new Bundle();
+                        bundle.putBoolean("edit", true);
+                        //TODO: add to bundle Hotel Container
+                        Intent EditAddActivityIntent = new Intent(MainActivity.this, EditAddActivity.class);
+                        EditAddActivityIntent.putExtras(bundle);
+                        startActivity(EditAddActivityIntent);
+
+                    }
+                });
+
+            }
+        });
+    }
+
+    public void addHotel(Button btn, final CustomAdapter adapter, final AppDatabase db) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("add", true);
+                Intent EditAddActivityIntent = new Intent(MainActivity.this, EditAddActivity.class);
+                EditAddActivityIntent.putExtras(bundle);
+                startActivity(EditAddActivityIntent);
+            }
+        });
+    }
+
+
     
     public void switchToHotelView(Button btn) {
         btn.setOnClickListener(new View.OnClickListener() {
