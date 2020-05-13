@@ -48,4 +48,4 @@ jobs:
         target: default
         arch: x86
         profile: Nexus 5X
-      run: ./gradlew connectedCheck --stacktrace
+        script: ./gradlew connectedCheck --stacktrace
