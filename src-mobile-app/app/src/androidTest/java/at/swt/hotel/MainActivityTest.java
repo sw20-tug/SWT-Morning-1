@@ -32,6 +32,7 @@ public class MainActivityTest {
             = new ActivityTestRule<>(MainActivity.class);
 
     @Test
+
     public void FirstTestActivity() {
         // Type text and then press the button.
         onView(withId(R.id.edit_location))
