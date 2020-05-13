@@ -42,10 +42,10 @@ jobs:
     
     steps:
     - name: Execute android front-end tests
-      uses: reactivecircus/android-emulator-runner@v2.6.1
-    with:
-      api-level: 29
-      target: default
-      arch: x86
-      profile: Nexus 5X
-      script: ./gradlew connectedCheck --stacktrace
+    - uses: reactivecircus/android-emulator-runner@v2.6.1
+      with:
+        api-level: 29
+        target: default
+        arch: x86
+        profile: Nexus 5X
+        script: ./gradlew connectedCheck --stacktrace
