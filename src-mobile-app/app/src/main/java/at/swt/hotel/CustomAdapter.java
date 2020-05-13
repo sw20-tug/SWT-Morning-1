@@ -1,6 +1,7 @@
 package at.swt.hotel;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +25,17 @@ public class CustomAdapter extends BaseAdapter {
         this.pictureList = picturesList;
         inflter = (LayoutInflater.from(applicationContext));
         hotelNames = new String[hotelList.size()];
-        hotelPictures = new int[hotelList.size()];
+        hotelPictures = new int[pictureList.size()];
         int position = 0;
         for(Hotel h : hotelList){
             hotelNames[position++] = h.name;
         }
+        Log.d("ADAPT","pictureList: " + pictureList.size());
+
+
         for(HotelPicture hp : pictureList){
             //if(hotelPictures[hp.hotelId] == 0) {
+            Log.d("ADAPT","index: " + (hp.hotelId-1));
                 hotelPictures[hp.hotelId-1] = hp.picture; // TODO: improve this solution
             //}
         }
@@ -43,7 +48,27 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Object getItem(int i) {return null;}
+
+    public Hotel getHotel(int id) {
+        int position = 0;
+        for(Hotel h : hotelList){
+            if(position == id){
+                return h;
+            }
+            position++;
+        }
+        return null;
+    }
+
+    public HotelPicture getHotelPicture(int id) {
+        int position = 0;
+        for(HotelPicture h : pictureList){
+            if(position == id){
+                return h;
+            }
+            position++;
+        }
         return null;
     }
 
