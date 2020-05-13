@@ -14,4 +14,10 @@ public class HotelContainer{
     public List<HotelInterest> hotelinterest;
 
 
+    public void delete(HotelDao hotelDao) {
+        hotelDao.deleteHotelInterestByHotelId(hotel.id);
+        hotelDao.deleteHotelPictureByHotelId(hotel.id);
+        hotelDao.deleteHotel(hotel);
+    }
 }
+

@@ -1,17 +1,16 @@
 package at.swt.hotel;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Filter;
 import android.widget.ImageButton;
 
-import java.io.Console;
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FilterActivity extends AppCompatActivity {
 
@@ -51,7 +50,13 @@ public class FilterActivity extends AppCompatActivity {
         });
     }
 
-    public void setPriceFilter(int min, int max){
-        Log.d("0wnz0r", "button prezzored");
+    public void setPriceFilter(int min, int max) {
+        List<HotelContainer> filteredHotels = new ArrayList<>();
+        for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+ //           if (Integer.getInteger(hc.hotel.price) < max || Integer.getInteger(hc.hotel.price) > min) {
+                filteredHotels.add(hc);
+//           }
+        }
+        HotelProvider.getInstance().updateHotelList(filteredHotels);
     }
 }

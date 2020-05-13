@@ -31,6 +31,12 @@ public interface HotelDao {
     @Query("DELETE from hotel")
     void deleteAllHotels();
 
+    @Query("DELETE from hotelinterest WHERE hotelId IS :hotel_id")
+    void deleteHotelInterestByHotelId(int hotel_id);
+
+    @Query("DELETE from hotelpicture WHERE hotelId IS :hotel_id")
+    void deleteHotelPictureByHotelId(int hotel_id);
+
     @Query("DELETE from hotelinterest")
     void deleteAllHotelInterests();
 
