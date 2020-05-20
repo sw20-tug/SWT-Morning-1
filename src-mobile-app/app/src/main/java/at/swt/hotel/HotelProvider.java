@@ -31,6 +31,17 @@ public class HotelProvider extends Application {
         resetHotelList();
     }
 
+    public void deleteHotel(final HotelContainer hc) {
+        hc.delete(db.hotelDao());
+        hotelContainerList.removeIf(tmp->tmp.hotel.id == hc.hotel.id);
+    }
+
+    public void insertHotel(final HotelContainer hc) {
+        hotelContainerList.add(hc);
+        db.hotelDao().insertHotels(hc.hotel);
+        db.hotelDao().insertHotelPictures(hc.hotelpictures.toArray(new HotelPicture[hc.hotelpictures.size()]));
+    }
+
     public static HotelProvider getInstance() {
         if (instance == null) {
             instance = new HotelProvider();
