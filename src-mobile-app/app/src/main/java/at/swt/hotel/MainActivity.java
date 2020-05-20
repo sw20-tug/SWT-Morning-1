@@ -1,27 +1,18 @@
 package at.swt.hotel;
 
 
-import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Picture;
-import android.os.Bundle;
-import android.util.Log;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean firstRun = false;
     private ListView hotelList;
     public static Context applicationContext;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

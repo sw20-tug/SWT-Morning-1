@@ -14,49 +14,104 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FilterActivity extends AppCompatActivity {
 
+    List<HotelContainer> priceFilteredHotels;
+    List<HotelContainer> starFilteredHotels;
+    List<HotelContainer> activityFilteredHotels;
+    List<HotelContainer> categoryFilteredHotels;
+    List<HotelContainer> locationFilteredHotels;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
         ImageButton btnSearch = findViewById(R.id.btnFilterSearch);
         switchToHotelView(btnSearch);
+
+        HotelProvider.getInstance().resetHotelList();
+        priceFilteredHotels = new ArrayList<>();
+        priceFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+        starFilteredHotels = new ArrayList<>();
+        starFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+        activityFilteredHotels = new ArrayList<>();
+        activityFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+        categoryFilteredHotels = new ArrayList<>();
+        categoryFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+        locationFilteredHotels = new ArrayList<>();
+        locationFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
+
         Button priceButton0_50 = findViewById(R.id.priceToggle1);
         priceButton0_50.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                setPriceFilter(0,50);
+                setPriceFilter(0, 50);
             }
         });
+
+        Button priceButton50_100 = findViewById(R.id.priceToggle2);
+        priceButton50_100.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setPriceFilter(50, 100);
+            }
+        });
+
+        Button priceButton100_150 = findViewById(R.id.priceToggle3);
+        priceButton100_150.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setPriceFilter(100, 150);
+            }
+        });
+
+        Button priceButton150_200 = findViewById(R.id.priceToggle4);
+        priceButton150_200.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setPriceFilter(150, 200);
+            }
+        });
+
+        Button priceButton200 = findViewById(R.id.priceToggle5);
+        priceButton200.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setPriceFilter(200, 999999);
+            }
+        });
+
 
         Button setFilterButton = findViewById(R.id.applyFilterButton);
         setFilterButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(FilterActivity.this, MainActivity.class);
-                FilterActivity.this.startActivity(MainActivityIntent);
+                List<HotelContainer> filteredHotels = priceFilteredHotels;
+                filteredHotels.retainAll(starFilteredHotels);
+                filteredHotels.retainAll(activityFilteredHotels);
+                filteredHotels.retainAll(categoryFilteredHotels);
+                filteredHotels.retainAll(locationFilteredHotels);
+                HotelProvider.getInstance().updateHotelList(filteredHotels); //TODO calculate Schnittmenge
+                Intent mainActivityIntent = new Intent(FilterActivity.this, MainActivity.class);
+                FilterActivity.this.startActivity(mainActivityIntent);
             }
         });
     }
-
 
     public void switchToHotelView(ImageButton btn) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent LoginActivityIntent = new Intent(FilterActivity.this, HotelViewActivity.class);
-                FilterActivity.this.startActivity(LoginActivityIntent);
+                Intent hotelViewActivity = new Intent(FilterActivity.this, HotelViewActivity.class);
+                FilterActivity.this.startActivity(hotelViewActivity);
 
             }
         });
     }
 
-    public void setPriceFilter(int min, int max) {
-        List<HotelContainer> filteredHotels = new ArrayList<>();
+    public void setPriceFilter(final int min, final int max) {
         for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
- //           if (Integer.getInteger(hc.hotel.price) < max || Integer.getInteger(hc.hotel.price) > min) {
-                filteredHotels.add(hc);
-//           }
+           if (!(hc.hotel.price <= max && hc.hotel.price >= min)) {
+               priceFilteredHotels.removeIf(tmp->tmp.hotel.id == hc.hotel.id);
+           }
         }
-        HotelProvider.getInstance().updateHotelList(filteredHotels);
     }
 }

@@ -2,7 +2,7 @@ package at.swt.hotel;
 
 import java.util.List;
 
-public class HotelContainer{
+public class HotelContainer {
     public HotelContainer(Hotel hotel, List<HotelPicture> hotelpictures, List<HotelInterest> hotelinterest) {
         this.hotel = hotel;
         this.hotelpictures = hotelpictures;
