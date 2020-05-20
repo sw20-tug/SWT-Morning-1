@@ -19,6 +19,7 @@ public class FilterActivity extends AppCompatActivity {
     List<HotelContainer> activityFilteredHotels;
     List<HotelContainer> categoryFilteredHotels;
     List<HotelContainer> locationFilteredHotels;
+    boolean pirceFiler = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,10 @@ public class FilterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
         ImageButton btnSearch = findViewById(R.id.btnFilterSearch);
         switchToHotelView(btnSearch);
+        pirceFiler = false;
 
         HotelProvider.getInstance().resetHotelList();
         priceFilteredHotels = new ArrayList<>();
-        priceFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
         starFilteredHotels = new ArrayList<>();
         starFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
         activityFilteredHotels = new ArrayList<>();
@@ -40,7 +41,7 @@ public class FilterActivity extends AppCompatActivity {
         locationFilteredHotels.addAll(HotelProvider.getInstance().getHotelContainerList());
 
         Button priceButton0_50 = findViewById(R.id.priceToggle1);
-        priceButton0_50.setOnClickListener(new View.OnClickListener(){
+        priceButton0_50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 setPriceFilter(0, 50);
@@ -85,6 +86,9 @@ public class FilterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 List<HotelContainer> filteredHotels = priceFilteredHotels;
+                if (priceFilteredHotels.isEmpty() && !pirceFiler) {
+                    filteredHotels = HotelProvider.getInstance().getHotelContainerList();
+                }
                 filteredHotels.retainAll(starFilteredHotels);
                 filteredHotels.retainAll(activityFilteredHotels);
                 filteredHotels.retainAll(categoryFilteredHotels);
@@ -108,9 +112,10 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     public void setPriceFilter(final int min, final int max) {
+        pirceFiler = true;
         for(HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
-           if (!(hc.hotel.price <= max && hc.hotel.price >= min)) {
-               priceFilteredHotels.removeIf(tmp->tmp.hotel.id == hc.hotel.id);
+           if (hc.hotel.price <= max && hc.hotel.price >= min) {
+               priceFilteredHotels.add(hc);
            }
         }
     }
