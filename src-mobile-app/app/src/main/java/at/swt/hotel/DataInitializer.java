@@ -23,7 +23,7 @@ public class DataInitializer extends AppCompatActivity {
         firstHotel.description = "Direkt beim Bahnhof und nur 10 Minuten vom Zentrum entfernt liegt unser neues arte Hotel Salzburg, das im Frühling 2019 eröffnet wurde. " +
                 "Das Gebäude ist ein beeindruckender Hochbau aus Stahl, Beton und Glas und bietet einen atemberaubenden Blick auf die Altstadt und das Umland. Besonders das Frühstück im 15. " +
                 "Stock und ein Drink abends von der Rooftop-Bar „hu:goes14“ mit Dachterrasse im 16. Stock werden einen einzigartigen Eindruck hinterlassen";
-        firstHotel.price = "270";
+        firstHotel.price = 270;
         firstHotel.category = "Romantisch";
         firstHotel.location = "Salzburg Rainerstraße 28 5020 Salzburg Österreich";
         firstHotel.stars = 4;
@@ -104,7 +104,7 @@ public class DataInitializer extends AppCompatActivity {
                 "In unseren Bubble Tents – den transparenten Kugelzelten.\n" +
                 "Eine Übernachtung im BubbleTent ist ein echtes Natur-Erlebnis, abseits des Gewoehnlichen.\n" +
                 "Geniesse die einzigartiger Lage mit freiem Blick auf die vielfältige Landschaft des Salzkammerguts. Abseits vom Stadttrubel, kannst du Körper und Seele baumeln lassen ohne auf den Komfort eines Hotels zu verzichten.\n";
-        secondHotel.price = "95";
+        secondHotel.price = 95;
         secondHotel.category = "Abenteuer";
         secondHotel.stars = 1;
         secondHotel.location = "Feld 2, 4853 Steinbach am Attersee";
@@ -183,7 +183,7 @@ public class DataInitializer extends AppCompatActivity {
                 "In der Lobby und in der Bar sorgt Sat-TV mit verschiedenen Sportkanälen für Unterhaltung.\n" +
                 "Verschiedene Restaurants und Geschäfte im Zentrum von Graz können Sie vom a&o Graz Hauptbahnhof in 5 Gehminuten erreichen.\n" +
                 "Gries ist bei Reisenden, die an einer schönen Altstadt, Spazieren gehen und Sightseeing interessiert sind, sehr beliebt.\n\n";
-        thirdHotel.price = "40";
+        thirdHotel.price = 40;
         thirdHotel.category = "Hostel";
         thirdHotel.stars = 3;
         thirdHotel.location = "Eggenberger Straße 7, Gries, 8020 Graz, Österreich";
@@ -258,7 +258,7 @@ public class DataInitializer extends AppCompatActivity {
                 "Das Kunsthaus befindet sich 100 m entfernt, und die Murinsel erreichen Sie bereits nach 300 m vom Hotel Wiesler in Graz. Die Schlossbergbahn liegt 5 Gehminuten entfernt. Leihfahrräder erhalten Sie in der Unterkunft.\n" +
                 "Gries ist bei Reisenden, die an einer schönen Altstadt, Spazieren gehen und Sightseeing interessiert sind, sehr beliebt.\n" +
                 "Laut unabhängiger Gästebewertungen ist das der beliebteste Teil von Graz.";
-        fourthHotel.price = "120";
+        fourthHotel.price = 120;
         fourthHotel.category = "Luxurious";
         fourthHotel.stars = 4;
         fourthHotel.location = "Grieskai 4-8, Gries, 8020 Graz, Österreich";
