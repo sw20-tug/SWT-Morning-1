@@ -130,9 +130,13 @@ public class MainActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putBoolean("edit", true);
                         //TODO: add to bundle Hotel Container
+                        HotelContainer hc = (HotelContainer) parent.getItemAtPosition(position);
+                        bundle.putInt("HCId", hc.hotel.id);
+
                         Intent editAddActivityIntent = new Intent(MainActivity.this, EditAddActivity.class);
                         editAddActivityIntent.putExtras(bundle);
                         startActivity(editAddActivityIntent);
+
 
                     }
                 });
