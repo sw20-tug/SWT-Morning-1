@@ -21,6 +21,7 @@ public class EditAddActivity extends AppCompatActivity {
     EditText category;
     EditText description;
     RatingBar star;
+    HotelContainer editHC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,22 @@ public class EditAddActivity extends AppCompatActivity {
             // TODO: add the changed HotelContainer object to the bundle!
             switchToMainActivity(btn_editadd, false);
         }
-        if(edit) {
+        if (edit) {
             headline.setText("Edit Hotel");
             btn_editadd.setText("Edit");
 
-            // TODO: add the changed HotelContainer object to the bundle!
+            for (HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+                if (hc.hotel.id == bun.getInt("HCId")) {
+                    editHC = hc;
+                    break;
+                }
+            }
+            name.setText(editHC.hotel.name);
+            star.setRating(editHC.hotel.stars);
+            location.setText(editHC.hotel.location);
+            price.setText(Integer.toString(editHC.hotel.price));
+            category.setText(editHC.hotel.category);
+            description.setText(editHC.hotel.description);
             switchToMainActivity(btn_editadd, true);
         }
     }
@@ -67,10 +79,11 @@ public class EditAddActivity extends AppCompatActivity {
 
 
                     ArrayList<HotelPicture> pictures = new ArrayList<HotelPicture>();
-                    pictures.add(new HotelPicture(99,99, R.drawable.hotel3_5));
+                    int hotelId = HotelProvider.getInstance().getNextHotelId();
+                    pictures.add(new HotelPicture(HotelProvider.getInstance().getNextPictureId(),hotelId, R.drawable.hotel3_5));
                     HotelContainer hc = new HotelContainer(
                             new Hotel(
-                                    99,
+                                    hotelId,
                                     name.getText().toString(),
                                     location.getText().toString(),
                                     Integer.parseInt(price.getText().toString()),
@@ -82,7 +95,21 @@ public class EditAddActivity extends AppCompatActivity {
                             null);
                     HotelProvider.getInstance().insertHotel(hc);
                 } else {
-                    // TODO: edit here!
+                    editHC.hotel.name = name.getText().toString();
+                    editHC.hotel.stars = Math.round(star.getRating());
+                    editHC.hotel.location = location.getText().toString();
+                    editHC.hotel.category = category.getText().toString();
+                    editHC.hotel.description = description.getText().toString();
+                    editHC.hotel.price = Integer.parseInt(price.getText().toString());
+                    for (HotelContainer hc : HotelProvider.getInstance().getHotelContainerList()) {
+                        if (hc.hotel.id == editHC.hotel.id) {
+                            HotelProvider.getInstance().deleteHotel(hc);
+                            HotelProvider.getInstance().insertHotel(editHC);
+                            hc = editHC;
+                            break;
+                        }
+                    }
+
                 }
 
                 Intent MainActivity = new Intent(EditAddActivity.this, at.swt.hotel.MainActivity.class);

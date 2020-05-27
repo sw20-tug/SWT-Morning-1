@@ -42,6 +42,28 @@ public class HotelProvider extends Application {
         db.hotelDao().insertHotelPictures(hc.hotelpictures.toArray(new HotelPicture[hc.hotelpictures.size()]));
     }
 
+    public int getNextHotelId() {
+        int max = 0;
+        for (HotelContainer hc : hotelContainerList) {
+            if( max < hc.hotel.id) {
+                max = hc.hotel.id;
+            }
+        }
+        return max + 1;
+    }
+
+    public int getNextPictureId() {
+        int max = 0;
+        for (HotelContainer hc : hotelContainerList) {
+            for ( HotelPicture hp : hc.hotelpictures) {
+                if( max < hp.id) {
+                    max = hp.id;
+                }
+            }
+        }
+        return max + 1;
+    }
+
     public static HotelProvider getInstance() {
         if (instance == null) {
             instance = new HotelProvider();
