@@ -140,6 +140,12 @@ public class EditAddActivity extends AppCompatActivity {
                     price.setError("Price must not be empty");
                 }
 
+                if (pictureToBeStored == null) {
+                    error = true;
+                    pictureError.setError("Picture must not be empty");
+                    pictureError.setText("Picture must not be empty");
+                }
+
                 if (error) {
                     return;
                 }
