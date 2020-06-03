@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         deleteHotel(btn_delete, customAdapter);
         editHotel(btn_edit, customAdapter);
         addHotel(btn_add_hotel, customAdapter);
+        detailView(customAdapter);
 
     }
 
@@ -145,6 +146,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+
+    public void detailView(final CustomAdapter adapter) {
+        hotelList.setAdapter(adapter);
+        hotelList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                HotelContainer hc = (HotelContainer) parent.getItemAtPosition(position);
+                bundle.putInt("HCId", hc.hotel.id);
+                bundle.putInt("Pos", position);
+                Intent editAddActivityIntent = new Intent(MainActivity.this, DetailActivity.class);
+                editAddActivityIntent.putExtras(bundle);
+                startActivity(editAddActivityIntent);
+            }
+        });
+
+
     }
 
     public void addHotel(Button btn, final CustomAdapter adapter) {
