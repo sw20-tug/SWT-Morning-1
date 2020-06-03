@@ -4,6 +4,7 @@ package at.swt.hotel;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         firstRun = preferences.getBoolean("FIRST_RUN", true);
         if (firstRun)
         {
-            HotelProvider.getInstance().initDataBase();
+            Resources res = getResources();
+            HotelProvider.getInstance().initDataBase(res);
             preferences = getSharedPreferences("HOTEL_PREFS", 0);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("FIRST_RUN", false);

@@ -63,12 +63,8 @@ public class DetailActivity extends AppCompatActivity  {
         //Bitmap bitmap = BitmapFactory.decodeByteArray(editHC.hotel.thumbnail, 0, editHC.hotel.thumbnail.length);
         //image.setImageBitmap(bitmap);
         int position = bun.getInt("Pos");
-        int picture = editHC.hotelpictures.get(0).picture;
-        Log.d("POS", "Position: " + position);
-        if (picture == 0) {
-            picture = R.drawable.hotel3_5;
-        }
-        image.setImageResource(picture);
+        byte[] picture = editHC.hotelpictures.get(0).picture;
+        image.setImageBitmap(BitmapFactory.decodeByteArray(picture, 0, picture.length));
         price.setText(Integer.toString(editHC.hotel.price) + "€");
         location.setText(editHC.hotel.location);
         description.setText(editHC.hotel.description);

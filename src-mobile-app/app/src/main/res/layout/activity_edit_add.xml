@@ -63,6 +63,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/image_editadd_error"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
