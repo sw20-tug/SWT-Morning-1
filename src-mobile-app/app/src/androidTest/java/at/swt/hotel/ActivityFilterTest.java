@@ -146,12 +146,12 @@ public class ActivityFilterTest {
         onView(withId(R.id.activityToggleButton2))
                 .perform(click());
         onView(withId(R.id.activityToggleButton2))
-                .check(matches(isNotChecked()));
+                .check(matches(isChecked()));
 
         onView(withId(R.id.activityToggleButton3))
                 .perform(click());
         onView(withId(R.id.activityToggleButton3))
-                .check(matches(isNotChecked()));
+                .check(matches(isChecked()));
 
         onView(withId(R.id.activityToggleButton4))
                 .perform(click());
