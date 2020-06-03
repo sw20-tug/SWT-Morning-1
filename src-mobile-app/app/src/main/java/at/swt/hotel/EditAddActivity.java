@@ -141,9 +141,7 @@ public class EditAddActivity extends AppCompatActivity {
                 }
 
                 if (pictureToBeStored == null) {
-                    error = true;
-                    pictureError.setError("Picture must not be empty");
-                    pictureError.setText("Picture must not be empty");
+                    pictureToBeStored = BitmapFactory.decodeResource(getResources(), R.drawable.hotel_1);
                 }
 
                 if (error) {
