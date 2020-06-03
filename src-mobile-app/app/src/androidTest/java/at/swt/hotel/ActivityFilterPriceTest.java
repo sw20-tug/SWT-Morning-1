@@ -65,8 +65,7 @@ public class ActivityFilterPriceTest {
         onData(anything())
                 .inAdapterView(withId(R.id.hotel_list))
                 .atPosition(0)
-                .perform(click())
-                .check(matches(isDisplayed()));
+                .perform(click());
 
     }
 
@@ -94,8 +93,7 @@ public class ActivityFilterPriceTest {
         onData(anything())
                 .inAdapterView(withId(R.id.hotel_list))
                 .atPosition(2)
-                .perform(click())
-                .check(matches(isDisplayed()));
+                .perform(click());
 
     }
 
