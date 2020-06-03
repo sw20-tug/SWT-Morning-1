@@ -47,7 +47,7 @@ public class ActivityFilterPriceTest {
     public void FilterPriceTest() {
 
         onView(withId(R.id.btn_filter)).perform(click());
-       // intended(hasComponent(MainActivity.class.getName()));
+        // intended(hasComponent(MainActivity.class.getName()));
 
         onView(withId(R.id.editFilterLocation))
                 .perform(typeText(""), closeSoftKeyboard());
@@ -57,6 +57,9 @@ public class ActivityFilterPriceTest {
                 .check(matches(isDisplayed()));
 
         onView(withId(R.id.priceToggle1)).perform(click());
+        onView(withId(R.id.priceToggle2)).perform(click());
+        onView(withId(R.id.priceToggle3)).perform(click());
+
         onView(withId(R.id.applyFilterButton)).perform(click());
 
         onData(anything())
@@ -90,7 +93,7 @@ public class ActivityFilterPriceTest {
 
         onData(anything())
                 .inAdapterView(withId(R.id.hotel_list))
-                .atPosition(3)
+                .atPosition(2)
                 .perform(click())
                 .check(matches(isDisplayed()));
 

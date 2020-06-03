@@ -39,9 +39,6 @@ public class MainActivityTest {
         onView(withId(R.id.imageMainSearch)).perform(click());
         onView(withId(R.id.edit_location))
                 .check(matches(withText("Hello")));
-
-
-
     }*/
     @Test
     public void LoginTestActivity() {
