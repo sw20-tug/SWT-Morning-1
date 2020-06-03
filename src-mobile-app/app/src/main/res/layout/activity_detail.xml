@@ -63,8 +63,8 @@
 
             <ImageView
                 android:id="@+id/imageViewDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="270dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:isScrollContainer="false"
                 android:keepScreenOn="false"
                 android:scaleType="fitStart"
@@ -110,19 +110,6 @@
                 android:id="@+id/activityDetail"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
-
-            <TextView
-                android:id="@+id/textView12Detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="Ratings" />
-
-            <ListView
-                android:id="@+id/hotelRatingDetail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
 
         </LinearLayout>
     </ScrollView>
