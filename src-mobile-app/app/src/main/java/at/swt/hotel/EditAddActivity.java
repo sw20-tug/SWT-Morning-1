@@ -90,7 +90,7 @@ public class EditAddActivity extends AppCompatActivity {
                                     category.getText().toString(),
                                     description.getText().toString(),
                                     null,
-                                    star.getNumStars()),
+                                    Math.round(star.getRating())),
                                     pictures,
                             null);
                     HotelProvider.getInstance().insertHotel(hc);
