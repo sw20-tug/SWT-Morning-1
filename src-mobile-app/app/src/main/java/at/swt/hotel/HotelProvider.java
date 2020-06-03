@@ -1,6 +1,7 @@
 package at.swt.hotel;
 
 import android.app.Application;
+import android.content.res.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,9 @@ public class HotelProvider extends Application {
         resetHotelList();
     }
 
-    public void initDataBase() {
+    public void initDataBase(final Resources res) {
         DataInitializer dataInitializer = new DataInitializer();
-        dataInitializer.initBasicData(db);
+        dataInitializer.initBasicData(db, res);
         resetHotelList();
     }
 
@@ -83,6 +84,7 @@ public class HotelProvider extends Application {
         hotelContainerList = new ArrayList<>();
         List<Hotel> hotels = db.hotelDao().getHotels();
         for(Hotel hotel : hotels){
+            int debug = hotel.id;
             List<HotelPicture> hpic = db.hotelDao().getHotelPictures(hotel.id);
             List<HotelInterest> hint = db.hotelDao().getHotelInterests(hotel.id);
             hotelContainerList.add(new HotelContainer(hotel,hpic,hint));

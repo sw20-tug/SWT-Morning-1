@@ -3,13 +3,21 @@ package at.swt.hotel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class EditAddActivity extends AppCompatActivity {
@@ -22,6 +30,9 @@ public class EditAddActivity extends AppCompatActivity {
     EditText description;
     RatingBar star;
     HotelContainer editHC;
+    ImageView picture;
+    TextView pictureError;
+    Bitmap pictureToBeStored;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +47,20 @@ public class EditAddActivity extends AppCompatActivity {
         category = findViewById(R.id.hotel_category_editadd);
         description = findViewById(R.id.hotel_description_editadd);
         star = findViewById(R.id.hotel_star_editadd);
+        picture = findViewById(R.id.image_editadd);
+        pictureError = findViewById(R.id.image_editadd_error);
 
+        Button loadPicture = findViewById(R.id.btn_image_editadd);
+        loadPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent()
+                        .setType("*/*")
+                        .setAction(Intent.ACTION_GET_CONTENT);
+
+                startActivityForResult(Intent.createChooser(intent, "Select a file"), 9999);
+            }
+        });
 
         Bundle bun = getIntent().getExtras();
         boolean add = bun.getBoolean("add");
@@ -68,19 +92,70 @@ public class EditAddActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 9999 && resultCode == RESULT_OK) {
+            try {
+                pictureToBeStored = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                picture.setImageBitmap(pictureToBeStored);
+            } catch (IOException e)
+            {
+                pictureError.setError("Cannot load image: " + e.getMessage());
+            }
+        }
+    }
+
     public void switchToMainActivity(Button btn, boolean edit_add) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("VAL", 1); //  TODO: change the value
+                star.setRating(0);
+                boolean error = false;
+
+                if (name.getText().toString().isEmpty()) {
+                    error = true;
+                    name.setError("Name must not be empty");
+                }
+
+                if (location.getText().toString().isEmpty()) {
+                    error = true;
+                    location.setError("Location must not be empty");
+                }
+
+                if (category.getText().toString().isEmpty()) {
+                    error = true;
+                    category.setError("Category must not be empty");
+                }
+
+                if (description.getText().toString().isEmpty()) {
+                    error = true;
+                    description.setError("Description must not be empty");
+                }
+
+                if (price.getText().toString().isEmpty()) {
+                    error = true;
+                    price.setError("Price must not be empty");
+                }
+
+                if (error) {
+                    return;
+                }
+
                 if(!edit_add) {
 
 
 
-                    ArrayList<HotelPicture> pictures = new ArrayList<HotelPicture>();
                     int hotelId = HotelProvider.getInstance().getNextHotelId();
-                    pictures.add(new HotelPicture(HotelProvider.getInstance().getNextPictureId(),hotelId, R.drawable.hotel3_5));
+                    ArrayList<HotelPicture> pictures = new ArrayList<HotelPicture>();
+                    if (pictureToBeStored != null) {
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        pictureToBeStored.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                        pictures.add(new HotelPicture(HotelProvider.getInstance().getNextPictureId(), hotelId, stream.toByteArray()));
+                    }
+
                     HotelContainer hc = new HotelContainer(
                             new Hotel(
                                     hotelId,

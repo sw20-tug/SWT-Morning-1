@@ -2,7 +2,13 @@ package at.swt.hotel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 
@@ -15,7 +21,7 @@ public class DataInitializer extends AppCompatActivity {
     public static final String DB_NAME = "Hotel_db";
 
 
-    public void initBasicData(AppDatabase db) {
+    public void initBasicData(AppDatabase db, final Resources res) {
         // --------------- HOTEL 1 ---------------
         Hotel firstHotel = new Hotel();
         firstHotel.id = 1;
@@ -94,7 +100,11 @@ public class DataInitializer extends AppCompatActivity {
         HotelPicture hotelPicture1 = new HotelPicture();
         hotelPicture1.id = 1;
         hotelPicture1.hotelId = 1;
-        hotelPicture1.picture = R.drawable.hotel_1;
+
+        Bitmap bitmap1 = BitmapFactory.decodeResource(res, R.drawable.hotel_1);
+        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+        bitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+        hotelPicture1.picture = stream1.toByteArray();
 
         // --------------- HOTEL 2 ---------------
         Hotel secondHotel = new Hotel();
@@ -171,7 +181,10 @@ public class DataInitializer extends AppCompatActivity {
         HotelPicture hotelPicture2 = new HotelPicture();
         hotelPicture2.id = 2;
         hotelPicture2.hotelId = 2;
-        hotelPicture2.picture = R.drawable.hotel_2;
+        Bitmap bitmap2 = BitmapFactory.decodeResource(res, R.drawable.hotel_2);
+        ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+        bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+        hotelPicture2.picture = stream2.toByteArray();
 
 
         // --------------- HOTEL 3 ---------------
@@ -247,7 +260,10 @@ public class DataInitializer extends AppCompatActivity {
         HotelPicture hotelPicture3 = new HotelPicture();
         hotelPicture3.id = 3;
         hotelPicture3.hotelId = 3;
-        hotelPicture3.picture = R.drawable.hotel_3;
+        Bitmap bitmap3 = BitmapFactory.decodeResource(res, R.drawable.hotel_3);
+        ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
+        bitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+        hotelPicture3.picture = stream3.toByteArray();
 
         // --------------- HOTEL 4 ---------------
         Hotel fourthHotel = new Hotel();
@@ -312,7 +328,11 @@ public class DataInitializer extends AppCompatActivity {
         HotelPicture hotelPicture4 = new HotelPicture();
         hotelPicture4.id = 4;
         hotelPicture4.hotelId = 4;
-        hotelPicture4.picture = R.drawable.hotel4_1;
+
+        Bitmap bitmap4 = BitmapFactory.decodeResource(res, R.drawable.hotel4);
+        ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
+        bitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+        hotelPicture4.picture = stream4.toByteArray();
 
 
         // insert data into database

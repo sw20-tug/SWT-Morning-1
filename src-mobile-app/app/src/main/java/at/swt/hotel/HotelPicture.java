@@ -1,5 +1,7 @@
 package at.swt.hotel;
 
+import android.graphics.Bitmap;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -11,7 +13,7 @@ public class HotelPicture {
     public HotelPicture(
             final int id,
             final int hotelId,
-            final int picture
+            final byte[] picture
     ) {
         this.id = id;
         this.hotelId = hotelId;
@@ -27,5 +29,5 @@ public class HotelPicture {
     public int hotelId;
 
     @ColumnInfo(name = "picture")
-    public int picture;
+    public byte[] picture;
 }

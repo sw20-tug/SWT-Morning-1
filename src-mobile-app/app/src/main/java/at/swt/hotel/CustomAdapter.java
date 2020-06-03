@@ -1,6 +1,8 @@
 package at.swt.hotel;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
@@ -16,18 +19,18 @@ public class CustomAdapter extends BaseAdapter {
     List<HotelContainer> hotelList;
     String[] hotelNames;
     LayoutInflater inflter;
-    int[] hotelPictures;
+    List<byte[]> hotelPictures;
 
     public CustomAdapter(Context applicationContext, List<HotelContainer> hotelList) {
         this.context = context;
         this.hotelList = hotelList;
         inflter = (LayoutInflater.from(applicationContext));
         hotelNames = new String[hotelList.size()];
-        hotelPictures = new int[hotelList.size()];
+        hotelPictures = new ArrayList<>(hotelList.size());
         int position = 0;
         for(HotelContainer h : hotelList){
             hotelNames[position] = h.hotel.name;
-            hotelPictures[position++] = h.hotelpictures.get(0) == null ? null : h.hotelpictures.get(0).picture;
+            hotelPictures.add(position++, h.hotelpictures.get(0) == null ? null : h.hotelpictures.get(0).picture);
         }
     }
 
@@ -52,7 +55,7 @@ public class CustomAdapter extends BaseAdapter {
         ImageView picture = (ImageView)view.findViewById(R.id.hotel_picture);
 
         hotelName.setText(hotelNames[i]);
-        picture.setImageResource(hotelPictures[i]);
+        picture.setImageBitmap(BitmapFactory.decodeByteArray(hotelPictures.get(i), 0, hotelPictures.get(i).length));
         return view;
     }
 }
