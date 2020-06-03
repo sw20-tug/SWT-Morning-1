@@ -1,6 +1,7 @@
 package at.swt.hotel;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,27 +13,21 @@ import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
     Context context;
-    List<Hotel> hotelList;
+    List<HotelContainer> hotelList;
     String[] hotelNames;
-    List<HotelPicture> pictureList;
     LayoutInflater inflter;
     int[] hotelPictures;
 
-    public CustomAdapter(Context applicationContext, List<Hotel> hotelList, List<HotelPicture> picturesList) {
+    public CustomAdapter(Context applicationContext, List<HotelContainer> hotelList) {
         this.context = context;
         this.hotelList = hotelList;
-        this.pictureList = picturesList;
         inflter = (LayoutInflater.from(applicationContext));
         hotelNames = new String[hotelList.size()];
         hotelPictures = new int[hotelList.size()];
         int position = 0;
-        for(Hotel h : hotelList){
-            hotelNames[position++] = h.name;
-        }
-        for(HotelPicture hp : pictureList){
-            //if(hotelPictures[hp.hotelId] == 0) {
-                hotelPictures[hp.hotelId-1] = hp.picture; // TODO: improve this solution
-            //}
+        for(HotelContainer h : hotelList){
+            hotelNames[position] = h.hotel.name;
+            hotelPictures[position++] = h.hotelpictures.get(0) == null ? null : h.hotelpictures.get(0).picture;
         }
     }
 
@@ -43,9 +38,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    public Object getItem(int i) { return hotelList.get(i);}
 
     @Override
     public long getItemId(int i) {

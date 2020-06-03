@@ -28,8 +28,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (userName.getText().toString().equals("admin")
                     && password.getText().toString().equals("password")) {
-                    Intent LoginActivityIntent = new Intent(LoginActivity.this, AdminActivity.class);
-                    LoginActivity.this.startActivity(LoginActivityIntent);
+                    Intent LoginActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("VAL", 1);
+
+                    LoginActivityIntent.putExtras(bundle);
+                    startActivity(LoginActivityIntent);
 
                 } else {
                     Context context = getApplicationContext();
