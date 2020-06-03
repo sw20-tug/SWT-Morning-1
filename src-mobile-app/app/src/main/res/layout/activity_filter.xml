@@ -7,7 +7,6 @@
     tools:context=".FilterActivity">
 
     <ScrollView
-        android:id="@+id/filter_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -64,7 +63,7 @@
                 android:isIndicator="false"
                 android:max="5"
                 android:numStars="5"
-                android:rating="0"
+                android:rating="4"
                 android:stepSize="1" />
 
             <LinearLayout
@@ -242,7 +241,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:checked="false"
+                        android:checked="true"
                         android:text="ToggleButton"
                         android:textOff="Climbing"
                         android:textOn="Climbing" />
@@ -252,7 +251,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:checked="false"
+                        android:checked="true"
                         android:text="ToggleButton"
                         android:textOff="Mountainbiking"
                         android:textOn="Mountainbiking" />
@@ -295,12 +294,6 @@
                         android:textOn="Skating" />
 
                 </LinearLayout>
-                <Button
-                    android:id="@+id/applyFilterButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Apply Filter" />
             </LinearLayout>
 
         </LinearLayout>

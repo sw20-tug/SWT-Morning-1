@@ -5,10 +5,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import androidx.test.espresso.action.GeneralLocation;
-import androidx.test.espresso.action.GeneralSwipeAction;
-import androidx.test.espresso.action.Press;
-import androidx.test.espresso.action.Swipe;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -18,7 +14,6 @@ import androidx.test.rule.ActivityTestRule;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.isNotChecked;
@@ -34,13 +29,12 @@ public class ActivityFilterTest {
     private static final String MESSAGE = "Algarve";
 
     @Rule
-    public ActivityTestRule<MainActivity> activityRule
-            = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<FilterActivity> activityRule
+            = new ActivityTestRule<>(FilterActivity.class);
 
     @Test
     public void ChangeText_sameActivity() {
-        onView(withId(R.id.btn_filter))
-                .perform(click());
+
         onView(withId(R.id.editFilterLocation))
                 .perform(typeText(MESSAGE), closeSoftKeyboard());
         onView(withId(R.id.editFilterLocation))
@@ -64,16 +58,8 @@ public class ActivityFilterTest {
 
     @Test
     public void PriceToggles_sameActivity() {
-        onView(withId(R.id.btn_filter))
-                .perform(click());
-
-        onView(withId(R.id.editFilterLocation))
-                .perform(typeText("Wien Hotel"), closeSoftKeyboard());
-
         onView(withId(R.id.priceToggle1))
                 .perform(click());
-
-
         onView(withId(R.id.priceToggle1))
                 .check(matches(isChecked()));
 
@@ -100,10 +86,6 @@ public class ActivityFilterTest {
 
     @Test
     public void CategoryToggles_sameActivity() {
-        onView(withId(R.id.btn_filter))
-                .perform(click());
-        onView(withId(R.id.editFilterLocation))
-                .perform(typeText("Test Hotel"), closeSoftKeyboard());
         onView(withId(R.id.categoryToggle1))
                 .perform(click());
         onView(withId(R.id.categoryToggle1))
@@ -129,15 +111,11 @@ public class ActivityFilterTest {
     @Test
     public void ActivitiesToggles_sameActivity() {
 
-        onView(withId(R.id.btn_filter))
-                .perform(click());
-        onView(withId(R.id.editFilterLocation))
-                .perform(typeText("Graz Hotel"), closeSoftKeyboard());
-
-        onView(ViewMatchers.withId(R.id.filter_scrollview))
+        onView(ViewMatchers.withId(R.id.activityToggleButton1))
                 .perform(ViewActions.swipeUp())
                 .check(matches(isDisplayed()));
 
+
         onView(withId(R.id.activityToggleButton1))
                 .perform(click());
         onView(withId(R.id.activityToggleButton1))
@@ -146,12 +124,12 @@ public class ActivityFilterTest {
         onView(withId(R.id.activityToggleButton2))
                 .perform(click());
         onView(withId(R.id.activityToggleButton2))
-                .check(matches(isChecked()));
+                .check(matches(isNotChecked()));
 
         onView(withId(R.id.activityToggleButton3))
                 .perform(click());
         onView(withId(R.id.activityToggleButton3))
-                .check(matches(isChecked()));
+                .check(matches(isNotChecked()));
 
         onView(withId(R.id.activityToggleButton4))
                 .perform(click());
@@ -170,11 +148,4 @@ public class ActivityFilterTest {
 
     }
 
-
-            /*onView(ViewMatchers.withId(R.id.filter_scrollview))
-                .perform(ViewActions.swipeDown())
-                .check(matches(isDisplayed()));
-         */
-        /*onView(withId(R.id.priceToggle1))
-                .perform(scrollTo(), click());*/
 }

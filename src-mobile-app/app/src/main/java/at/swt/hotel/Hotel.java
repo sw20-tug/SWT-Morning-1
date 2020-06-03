@@ -13,7 +13,7 @@ public class Hotel {
             final int                 id,
             final String              name,
             final String              location,
-            final int                 price,
+            final String              price,
             final String              category,
             final String              description,
             final byte[]              thumbnail,
@@ -29,7 +29,6 @@ public class Hotel {
         this.stars = stars;
     }
 
-
     public Hotel(){}
 
     @PrimaryKey
@@ -43,7 +42,7 @@ public class Hotel {
     public String location;
 
     @ColumnInfo(name = "price")
-    public int price;
+    public String price;
 
     @ColumnInfo(name = "category")
     public String category;
