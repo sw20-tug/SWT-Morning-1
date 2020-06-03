@@ -50,9 +50,9 @@ public class LoginActivityTest {
         onView(withId(R.id.editPassword))
                 .check(matches(withText("password")));
         onView(withId(R.id.btn_login_loginactivity)).perform(click());
-        intended(hasComponent(AdminActivity.class.getName()));
-        onView(withId(R.id.btn_back_main)).perform(click());
         intended(hasComponent(MainActivity.class.getName()));
+        //onView(withId(R.id.btn_back_main)).perform(click());
+        //intended(hasComponent(MainActivity.class.getName()));
     }
 
     @Test

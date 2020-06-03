@@ -1,5 +1,7 @@
 package at.swt.hotel;
 
+import android.graphics.Bitmap;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -9,14 +11,18 @@ import androidx.room.PrimaryKey;
 public class HotelPicture {
 
     public HotelPicture(
-            final int    hotelId,
+            final int id,
+            final int hotelId,
             final byte[] picture
     ) {
+        this.id = id;
         this.hotelId = hotelId;
         this.picture = picture;
     }
 
-    @PrimaryKey(autoGenerate = true)
+    public HotelPicture() {}
+
+    @PrimaryKey
     public int id;
 
     @ForeignKey(entity = Hotel.class, parentColumns = "id", childColumns = "hotelId")

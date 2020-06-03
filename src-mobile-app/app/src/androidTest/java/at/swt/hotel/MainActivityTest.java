@@ -31,7 +31,7 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> activityRule
             = new ActivityTestRule<>(MainActivity.class);
 
-    @Test
+    /*@Test
     public void FirstTestActivity() {
         // Type text and then press the button.
         onView(withId(R.id.edit_location))
@@ -39,8 +39,7 @@ public class MainActivityTest {
         onView(withId(R.id.imageMainSearch)).perform(click());
         onView(withId(R.id.edit_location))
                 .check(matches(withText("Hello")));
-
-    }
+    }*/
     @Test
     public void LoginTestActivity() {
         // Type text and then press the button.
@@ -71,15 +70,11 @@ public class MainActivityTest {
         // Type text and then press the button.
         onView(withId(R.id.btn_filter)).perform(click());
         onView(withId(R.id.editFilterLocation))
-                .perform(typeText("hotel...awesome"), closeSoftKeyboard());
+                .perform(typeText("Graz"), closeSoftKeyboard());
         onView(withId(R.id.btnFilterSearch)).perform(click());
-        onView(ViewMatchers.withId(R.id.scrollHotel))
+
+        onView(ViewMatchers.withId(R.id.hotel_list))
                 .perform(ViewActions.swipeUp())
                 .check(matches(isDisplayed()));
     }
-
-
-
-
-
 }

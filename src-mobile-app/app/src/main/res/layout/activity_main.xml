@@ -6,82 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
-        android:text="Hotel...Awesome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_sort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="321dp"
-        android:text="Sort"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="62dp"
-        android:text="Filter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_sort"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="180dp"
-        android:ems="10"
-        android:hint="Location"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sort" />
-
-    <ImageButton
-        android:id="@+id/imageMainSearch"
-        android:layout_width="71dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="63dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/edit_location"
-        app:layout_constraintTop_toBottomOf="@+id/btn_filter"
-        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
-
-    <Button
-        android:id="@+id/btn_Login_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Switch To Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_location" />
-
-    <TextView
-        android:id="@+id/hotel_info"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/menubar"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/btn_sort"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:text="Sort" />
+
+            <Button
+                android:id="@+id/btn_delete_hotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:text="Delete Hotel" />
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:text="Filter" />
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:text="Logout" />
+
+            <ImageButton
+                android:id="@+id/imageMainSearch"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignRight="@id/btn_Login_main"
+                android:layout_marginRight="-103dp"
+                app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+
+            <Button
+                android:id="@+id/btn_add_hotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignRight="@id/btn_Login_main"
+                android:layout_marginRight="-103dp"
+                android:text="Add Hotel" />
+
+            <Button
+            android:id="@+id/btn_Login_main"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignRight="@id/btn_sort"
+            android:layout_marginRight="-103dp"
+            android:text="Switch To Login"
+            android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/btn_editHotel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_alignRight="@id/btn_sort"
+                android:layout_marginRight="-103dp"
+                android:text="Edit Hotel"
+                android:textAlignment="textStart" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/hotel_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/material_blue_grey_800"
+                android:dividerHeight="1dp"
+                android:footerDividersEnabled="false"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
